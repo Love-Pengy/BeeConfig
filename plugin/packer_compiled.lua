@@ -84,10 +84,10 @@ _G.packer_plugins = {
     path = "/home/bee/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",
     url = "https://github.com/hrsh7th/cmp-nvim-lsp"
   },
-  ["indent-blankline.nvim"] = {
+  ["hlchunk.nvim"] = {
     loaded = true,
-    path = "/home/bee/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim",
-    url = "https://github.com/lukas-reineke/indent-blankline.nvim"
+    path = "/home/bee/.local/share/nvim/site/pack/packer/start/hlchunk.nvim",
+    url = "https://github.com/shellRaining/hlchunk.nvim"
   },
   ["lsp-zero.nvim"] = {
     loaded = true,
