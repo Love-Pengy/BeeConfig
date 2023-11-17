@@ -24,12 +24,14 @@ use('tpope/vim-fugitive')
 use('williamboman/mason.nvim')
 use('williamboman/mason-lspconfig.nvim')
 use('neovim/nvim-lspconfig')
-use("shellRaining/hlchunk.nvim")
+use('lukas-reineke/indent-blankline.nvim')
+use("MunifTanjim/nougat.nvim")
 use {
   'VonHeikemen/lsp-zero.nvim',
   branch = 'v3.x',
   requires = {
     --- Uncomment these if you want to manage LSP servers from neovim
+    --
     -- {'williamboman/mason.nvim'},
     -- {'williamboman/mason-lspconfig.nvim'},
 

@@ -23,5 +23,5 @@ vim.opt.termguicolors = true
 
 vim.opt.scrolloff = 8
 
-
+--vim.cmd("hi StatusLine  guifg=NONE")
 
