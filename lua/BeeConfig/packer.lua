@@ -21,11 +21,27 @@ end}
 use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
 use('mbbill/undotree')
 use('tpope/vim-fugitive')
+--opts = {whitespace = {TAB_END}}
+use('lukas-reineke/indent-blankline.nvim')
+--[[
+use { 
+        "lukas-reineke/indent-blankline.nvim", 
+        config = function()
+                opts = {whitespace = {TAB_END}}
+                return require("indent-rainbowline").make_opts(opts, 
+                {color_transparency = 1})
+     end, 
+        requires = {
+                "TheGLander/indent-rainbowline.nvim", 
+        }, 
+}
+
+-]]
 use('williamboman/mason.nvim')
 use('williamboman/mason-lspconfig.nvim')
 use('neovim/nvim-lspconfig')
-use('lukas-reineke/indent-blankline.nvim')
 use("MunifTanjim/nougat.nvim")
+--use('HiPhish/rainbow-delimiters.nvim')
 use {
   'VonHeikemen/lsp-zero.nvim',
   branch = 'v3.x',
@@ -44,4 +60,4 @@ use {
   }
 }
 
-end)
+ end)
