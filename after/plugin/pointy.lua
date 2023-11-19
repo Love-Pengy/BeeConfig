@@ -48,6 +48,7 @@ local color = {
   purple = "#d3869b",
   aqua = "#8ec07c",
   orange = "#f38019",
+  cyan = "#02DED3", 
 
   accent = {
     red = "#cc241d",
@@ -67,7 +68,7 @@ local mode = nut.mode({
   config = {
     highlight = {
       normal = {
-        bg = "fg",
+        bg = color.cyan,
         fg = color.bg,
       },
       visual = {
