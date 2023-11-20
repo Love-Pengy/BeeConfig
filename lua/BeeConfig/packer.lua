@@ -41,6 +41,7 @@ use('williamboman/mason.nvim')
 use('williamboman/mason-lspconfig.nvim')
 use('neovim/nvim-lspconfig')
 use("MunifTanjim/nougat.nvim")
+use {'akinsho/bufferline.nvim', tag = "*", requires = 'nvim-tree/nvim-web-devicons'}
 --use('HiPhish/rainbow-delimiters.nvim')
 use {
   'VonHeikemen/lsp-zero.nvim',
