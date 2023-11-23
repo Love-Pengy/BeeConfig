@@ -25,6 +25,7 @@ vim.opt.scrolloff = 8
 
 vim.cmd("set ve+=onemore")
 
+vim.opt.mouse = ""
 vim.cmd("set numberwidth=1")
 --vim.cmd("hi StatusLine  guifg=NONE")
 
