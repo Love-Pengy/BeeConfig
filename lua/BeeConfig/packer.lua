@@ -12,11 +12,17 @@ use {
   requires = { {'nvim-lua/plenary.nvim'} }
 }
 
+--[[
 use {'ray-x/starry.nvim', setup = function() 
 	-- see example setup below
 	vim.g.starry_italic_comments = true
-	vim.cmd("colorscheme middlenight_blue")
+
 end}
+--]]
+
+use('/home/bee/.config/nvim/after/plugin/SunflowerBee')
+--colorscheme maker
+use('rktjmp/lush.nvim')
 
 use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
 use('mbbill/undotree')
@@ -42,7 +48,7 @@ use('williamboman/mason-lspconfig.nvim')
 use('neovim/nvim-lspconfig')
 use("MunifTanjim/nougat.nvim")
 use {'akinsho/bufferline.nvim', tag = "*", requires = 'nvim-tree/nvim-web-devicons'}
---use('HiPhish/rainbow-delimiters.nvim')
+use('HiPhish/rainbow-delimiters.nvim')
 use {
   'VonHeikemen/lsp-zero.nvim',
   branch = 'v3.x',
@@ -62,3 +68,4 @@ use {
 }
 
  end)
+ 

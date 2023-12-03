@@ -46,14 +46,12 @@ local highlight = {
     "Color5",
 }
 
-local highlight2 = {
-    "RainbowRed",
-    "RainbowYellow",
-    "RainbowBlue",
-    --"RainbowOrange",
-    "RainbowViolet",
-    "RainbowCyan",
-    "RainbowPink",
+local sunflowerDelims = {
+        "Sunflower1", 
+        "Sunflower2", 
+        "Sunflower3", 
+        "Sunflower4", 
+        "Sunflower5", 
 }
 
 
@@ -66,16 +64,15 @@ hooks.register(hooks.type.HIGHLIGHT_SETUP, function()
     vim.api.nvim_set_hl(0, "Color3", { fg = "#9D79BC" })
     vim.api.nvim_set_hl(0, "Color4", { fg = "#A14DA0" })
     vim.api.nvim_set_hl(0, "Color5", { fg = "#7E1F86" })
-    vim.api.nvim_set_hl(0, "RainbowRed", { fg = "#E06C75" })
-    vim.api.nvim_set_hl(0, "RainbowYellow", { fg = "#E5C07B" })
-    vim.api.nvim_set_hl(0, "RainbowBlue", { fg = "#0ACDFF" })
-    -- vim.api.nvim_set_hl(0, "RainbowOrange", { fg = "#D19A66" })
-    --vim.api.nvim_set_hl(0, "RainbowViolet", { fg = "#2C0E37" })
-    --vim.api.nvim_set_hl(0, "RainbowCyan", { fg = "#56B6C2" })
-    --vim.api.nvim_set_hl(0, "RainbowPink", { fg = "#FF66B3" })
+    vim.api.nvim_set_hl(0, "Sunflower1", { fg = "#FBCA47" })
+    vim.api.nvim_set_hl(0, "Sunflower2", { fg = "#FBEB62" })
+    vim.api.nvim_set_hl(0, "Sunflower3", { fg = "#DE6D11" })
+    vim.api.nvim_set_hl(0, "Sunflower4", { fg = "#CF6B13" })
+    vim.api.nvim_set_hl(0, "Sunflower5", { fg = "#F69F22" })
 end)
 
---vim.g.rainbow_delimiters = {highlight = highlight2} 
-require("ibl").setup { indent = { highlight = highlight }, scope = { enabled = false}}
+vim.g.rainbow_delimiters = {highlight = sunflowerDelims} 
+require("ibl").setup( { indent = { highlight = highlight }, scope = { highlight = sunflowerDelims}})
 
---hooks.register(hooks.type.SCOPE_HIGHLIGHT, hooks.builtin.scope_highlight_from_extmark)
+hooks.register(hooks.type.SCOPE_HIGHLIGHT, hooks.builtin.scope_highlight_from_extmark)
+

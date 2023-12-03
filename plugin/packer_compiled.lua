@@ -79,6 +79,11 @@ _G.packer_plugins = {
     path = "/home/bee/.local/share/nvim/site/pack/packer/start/LuaSnip",
     url = "https://github.com/L3MON4D3/LuaSnip"
   },
+  SunflowerBee = {
+    loaded = true,
+    path = "/home/bee/.local/share/nvim/site/pack/packer/start/SunflowerBee",
+    url = "/home/bee/.config/nvim/after/plugin/SunflowerBee"
+  },
   ["bufferline.nvim"] = {
     loaded = true,
     path = "/home/bee/.local/share/nvim/site/pack/packer/start/bufferline.nvim",
@@ -98,6 +103,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/bee/.local/share/nvim/site/pack/packer/start/lsp-zero.nvim",
     url = "https://github.com/VonHeikemen/lsp-zero.nvim"
+  },
+  ["lush.nvim"] = {
+    loaded = true,
+    path = "/home/bee/.local/share/nvim/site/pack/packer/start/lush.nvim",
+    url = "https://github.com/rktjmp/lush.nvim"
   },
   ["mason-lspconfig.nvim"] = {
     loaded = true,
@@ -144,11 +154,10 @@ _G.packer_plugins = {
     path = "/home/bee/.local/share/nvim/site/pack/packer/start/plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
   },
-  ["starry.nvim"] = {
+  ["rainbow-delimiters.nvim"] = {
     loaded = true,
-    needs_bufread = false,
-    path = "/home/bee/.local/share/nvim/site/pack/packer/opt/starry.nvim",
-    url = "https://github.com/ray-x/starry.nvim"
+    path = "/home/bee/.local/share/nvim/site/pack/packer/start/rainbow-delimiters.nvim",
+    url = "https://github.com/HiPhish/rainbow-delimiters.nvim"
   },
   ["telescope.nvim"] = {
     loaded = true,
@@ -168,13 +177,6 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Setup for: starry.nvim
-time([[Setup for starry.nvim]], true)
-try_loadstring("\27LJ\2\ni\0\0\3\0\5\0\t6\0\0\0009\0\1\0+\1\2\0=\1\2\0006\0\0\0009\0\3\0'\2\4\0B\0\2\1K\0\1\0!colorscheme middlenight_blue\bcmd\27starry_italic_comments\6g\bvim\0", "setup", "starry.nvim")
-time([[Setup for starry.nvim]], false)
-time([[packadd for starry.nvim]], true)
-vim.cmd [[packadd starry.nvim]]
-time([[packadd for starry.nvim]], false)
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then

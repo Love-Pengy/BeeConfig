@@ -1,6 +1,7 @@
 vim.cmd("set number")
 vim.cmd("set autoindent")
 vim.cmd("set smarttab")
+vim.cmd("set cursorline")
 
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
@@ -28,4 +29,5 @@ vim.cmd("set ve+=onemore")
 vim.opt.mouse = ""
 vim.cmd("set numberwidth=1")
 --vim.cmd("hi StatusLine  guifg=NONE")
+
 
