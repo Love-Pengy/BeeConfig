@@ -72,7 +72,7 @@ hooks.register(hooks.type.HIGHLIGHT_SETUP, function()
 end)
 
 vim.g.rainbow_delimiters = {highlight = sunflowerDelims} 
-require("ibl").setup( { indent = { highlight = highlight }, scope = { highlight = sunflowerDelims}})
+require("ibl").setup( { indent = { highlight = highlight }, scope = { highlight = sunflowerDelims, show_start = false, show_end = false}})
 
 hooks.register(hooks.type.SCOPE_HIGHLIGHT, hooks.builtin.scope_highlight_from_extmark)
 
