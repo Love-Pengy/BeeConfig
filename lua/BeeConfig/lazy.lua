@@ -31,13 +31,13 @@ local plugins = {
 	'Love-Pengy/SunflowerBee', 
         --syntax tree 
         'nvim-treesitter/nvim-treesitter', 
-	build = ':TSUpdate', 
+        build = ':TSUpdate', 
         --undo plugin
         ('mbbill/undotree'), 
         --git functionality 
         ('tpope/vim-fugitive'), 
         --pretty indents
-	{'lukas-reineke/indent-blankline.nvim', main = "ibl", opts={}, 
+	{'lukas-reineke/indent-blankline.nvim', main = "ibl", opts={}}, 
         --lsp plugins 
         ('williamboman/mason.nvim'), 
         ('williamboman/mason-lspconfig.nvim'), 
@@ -60,8 +60,8 @@ local plugins = {
             {'L3MON4D3/LuaSnip'},
           }
         } 
-}
-}
+
 }
 
+}
 require("lazy").setup(plugins, {})

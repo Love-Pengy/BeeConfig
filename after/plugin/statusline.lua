@@ -4,6 +4,56 @@ local Bar = require("nougat.bar")
 local Item = require("nougat.item")
 local sep = require("nougat.separator")
 
+local customColor = {
+  bg = "#1d2021",
+  bg0_h = "#1d2021",
+  bg0 = "#282828",
+  bg0_s = "#32302f",
+  bg1 = "#3c3836",
+  bg2 = "#504945",
+  bg3 = "#665c54",
+  bg4 = "#7c6f64",
+  black = "#ffffff", 
+
+  gray = "#928374",
+
+  fg = "#ebdbb2",
+  fg0 = "#fbf1c7",
+  fg1 = "#ebdbb2",
+  fg2 = "#d5c4a1",
+  fg3 = "#bdae93",
+  fg4 = "#a89984",
+
+  lightgray = "#a89984",
+
+  red = "#fb4934",
+  green = "#b8bb26",
+  yellow = "#fabd2f",
+  blue = "#83a598",
+  purple = "#d3869b",
+  aqua = "#8ec07c",
+  orange = "#f38019",
+  cyan = "#02DED3", 
+
+  sunflower1 = "#FBDD9D", 
+  sunflower2 = "#E8B12D", 
+  sunflower3 = "#4F4E28", 
+  sunflower4 = "#925F17", 
+  sunflower5 = "#E9BF59", 
+
+
+
+  accent = {
+    red = "#cc241d",
+    green = "#98971a",
+    yellow = "#d79921",
+    blue = "#458588",
+    purple = "#b16286",
+    aqua = "#689d6a",
+    orange = "#d65d0e",
+  },
+}
+
 local nut = {
   buf = {
     diagnostic_count = require("nougat.nut.buf.diagnostic_count").create,
@@ -36,6 +86,41 @@ local mode = nut.mode({
   sep_right = sep.right_half_circle_solid(true),
 })
 
+local mode = nut.mode({
+  prefix = " ",
+  suffix = " ",
+  sep_right = sep.right_chevron_solid(true),
+  config = {
+    highlight = {
+      normal = {
+        bg = customColor.sunflower1,
+        fg = color.bg,
+      },
+      visual = {
+        bg = customColor.sunflower2,
+        fg = color.bg,
+      },
+      insert = {
+        bg = customColor.sunflower3,
+        fg = color.bg,
+      },
+      replace = {
+        bg = customColor.sunflower4,
+        fg = color.bg,
+      },
+      commandline = {
+        bg = customColor.sunflower5,
+        fg = color.bg,
+      },
+      terminal = {
+        bg = color.accent.green,
+        fg = color.bg,
+      },
+      inactive = {},
+    },
+  },
+})
+
 local filename = (function()
   local item = Item({
     prepare = function(_, ctx)
@@ -47,7 +132,7 @@ local filename = (function()
     sep_left = sep.left_half_circle_solid(true),
     content = {
       Item({
-        hl = { bg = color.bg4, fg = color.fg },
+        hl = { bg = customColor.sunflower3, fg = color.fg },
         hidden = function(_, ctx)
           return not ctx.ctx.readonly
         end,
@@ -55,7 +140,7 @@ local filename = (function()
         content = "RO",
       }),
       Item({
-        hl = { bg = color.bg4, fg = color.fg },
+        hl = { bg = customColor.sunflower3, fg = color.fg },
         hidden = function(_, ctx)
           return ctx.ctx.modifiable
         end,
@@ -63,7 +148,7 @@ local filename = (function()
         suffix = " ",
       }),
       nut.buf.filename({
-        hl = { bg = color.fg, fg = color.bg },
+        hl = { bg = customColor.sunflower5, fg = color.bg },
         prefix = function(_, ctx)
           local data = ctx.ctx
           if data.readonly or not data.modifiable then
@@ -80,7 +165,7 @@ local filename = (function()
         end,
       }),
       Item({
-        hl = { bg = color.bg4, fg = color.fg },
+        hl = { bg = customColor.sunflower3, fg = color.fg },
         hidden = function(_, ctx)
           return not ctx.ctx.modified
         end,
@@ -96,14 +181,14 @@ end)()
 
 local ruler = (function()
   local scroll_hl = {
-    [true] = { bg = color.bg3 },
+    [true] = { bg = customColor.sunflower4, fg = color.bg},
     [false] = { bg = color.bg4 },
   }
 
   local item = Item({
     content = {
       Item({
-        hl = { bg = color.bg4 },
+        hl = { bg = customColor.sunflower5, fg = color.bg},
         sep_left = sep.left_half_circle_solid(true),
         content = core.group({
           core.code("l"),
@@ -139,7 +224,7 @@ local stl = Bar("statusline")
 stl:add_item(mode)
 stl:add_item(sep.space())
 stl:add_item(nut.git.branch({
-  hl = { bg = color.magenta, fg = color.bg },
+  hl = { bg = customColor.sunflower4, fg = color.bg },
   sep_left = sep.left_half_circle_solid(true),
   prefix = " ",
   sep_right = sep.right_half_circle_solid(true),
@@ -150,14 +235,14 @@ local gitstatus = stl:add_item(nut.git.status.create({
   sep_left = sep.left_half_circle_solid(true),
   content = {
     nut.git.status.count("added", {
-      hl = { bg = color.green },
+      hl = { bg = customColor.sunflower2 },
       prefix = "+",
       suffix = function(_, ctx)
         return (ctx.gitstatus.changed > 0 or ctx.gitstatus.removed > 0) and " " or ""
       end,
     }),
     nut.git.status.count("changed", {
-      hl = { bg = color.blue },
+      hl = { bg = customColor.sunflower3 },
       prefix = function(_, ctx)
         return ctx.gitstatus.added > 0 and " ~" or "~"
       end,
@@ -180,7 +265,7 @@ stl:add_item(sep.space())
 stl:add_item(nut.spacer())
 stl:add_item(nut.truncation_point())
 stl:add_item(nut.buf.filetype({
-  hl = { bg = color.blue, fg = color.bg },
+  hl = { bg = customColor.sunflower4, fg = color.bg },
   sep_left = sep.left_half_circle_solid(true),
   sep_right = sep.right_half_circle_solid(true),
 }))
