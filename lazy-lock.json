@@ -1,0 +1,23 @@
+{
+  "LuaSnip": { "branch": "master", "commit": "57c9f5c31b3d712376c704673eac8e948c82e9c1" },
+  "SunflowerBee": { "branch": "master", "commit": "0abbaae2e48535eeb0307da85dae39af81a2c5af" },
+  "bufferline.nvim": { "branch": "main", "commit": "6c456b888823d9e4832aa91c482bccd19445c009" },
+  "cmp-nvim-lsp": { "branch": "main", "commit": "5af77f54de1b16c34b23cba810150689a3a90312" },
+  "fd": { "branch": "master", "commit": "266311ca33a78924dcad1fc13f99974098286ed0" },
+  "indent-blankline.nvim": { "branch": "master", "commit": "f3eb33c04c3c5028b4efa7dbf8f68abdb6ab50ed" },
+  "lazy.nvim": { "branch": "main", "commit": "96584866b9c5e998cbae300594d0ccfd0c464627" },
+  "lsp-zero.nvim": { "branch": "v3.x", "commit": "b9044716e675354357ab8269ccf7bd0fcdc0991e" },
+  "lush.nvim": { "branch": "main", "commit": "f76741886b356586f9dfe8e312fbd1ab0fd1084f" },
+  "mason-lspconfig.nvim": { "branch": "main", "commit": "9453e3d6cd2ca45d96e20f343e8f1b927364b630" },
+  "mason.nvim": { "branch": "main", "commit": "41e75af1f578e55ba050c863587cffde3556ffa6" },
+  "nougat.nvim": { "branch": "main", "commit": "6024f7558fe4759ce81723fd770a6abe5ceb7010" },
+  "nvim-cmp": { "branch": "main", "commit": "538e37ba87284942c1d76ed38dd497e54e65b891" },
+  "nvim-lspconfig": { "branch": "master", "commit": "e85816c5803410cacb52e9b4fbdb72a1f1a6bd11" },
+  "nvim-treesitter": { "branch": "master", "commit": "0dfbf5e48e8551212c2a9f1c74cb080c8e76b5d1" },
+  "nvim-web-devicons": { "branch": "master", "commit": "a1425903ab52a0a0460622519e827f224e5b4fee" },
+  "plenary.nvim": { "branch": "master", "commit": "55d9fe89e33efd26f532ef20223e5f9430c8b0c0" },
+  "rainbow-delimiters.nvim": { "branch": "master", "commit": "b510fd445b6ee0b621e910e4b3e123e48d6bb436" },
+  "telescope.nvim": { "branch": "master", "commit": "7011eaae0ac1afe036e30c95cf80200b8dc3f21a" },
+  "undotree": { "branch": "master", "commit": "36ff7abb6b60980338344982ad4cdf03f7961ecd" },
+  "vim-fugitive": { "branch": "master", "commit": "59659093581aad2afacedc81f009ed6a4bfad275" }
+}
