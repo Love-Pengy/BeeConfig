@@ -1,29 +1,14 @@
 local lsp_zero = require('lsp-zero')
 
-<<<<<<< HEAD
-
-lsp_zero.on_attach(function(client, bufnr)
-	lsp_zero.default_keymaps({buffer = bufnr})
-=======
 lsp_zero.on_attach(function(client, bufnr)
   local opts = {buffer = bufnr, remap = false}
 
   vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
 
->>>>>>> 60f4d09 (fixes and autocompletion setup)
 end)
 
 require('mason').setup({})
 require('mason-lspconfig').setup({
-<<<<<<< HEAD
-	ensure_installed = {'ruff_lsp', 'clangd', 'marksman'}, 
-	handlers = {
-		lsp_zero.default_setup,
-	}, 
-})
-
-
-=======
   automatic_installation = true, 
   handlers = {
     lsp_zero.default_setup,
@@ -57,4 +42,3 @@ cmp.setup({
     ['<C-Space>'] = cmp.mapping.complete(),
   }),
 })
->>>>>>> 60f4d09 (fixes and autocompletion setup)
