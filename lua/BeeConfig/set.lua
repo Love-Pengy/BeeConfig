@@ -1,5 +1,6 @@
 --put numbers on the side
 vim.cmd("set number")
+vim.cmd("set relative numbers")
 
 --enabkle colored line on cursor 
 vim.cmd("set cursorline")
