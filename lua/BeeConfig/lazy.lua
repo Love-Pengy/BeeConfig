@@ -1,5 +1,6 @@
 --package manager
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({
     "git",
@@ -22,14 +23,24 @@ local plugins = {
           dependencies = { {'nvim-lua/plenary.nvim'} }
         },
 
-    
+
+    --discord rich presence
+    {
+      "jiriks74/presence.nvim",
+      event = "UIEnter",
+    },
+
     --telescope search helper
     'sharkdp/fd', 
 	
+    --open obsidian from within neovim (I made this!!:3)
+    'Love-Pengy/obsidianOpener.nvim',  
+
 	--colorscheme maker
 	'rktjmp/lush.nvim', 
 	--my colorscheme
 	'Love-Pengy/SunflowerBee', 
+
         --syntax tree 
         'nvim-treesitter/nvim-treesitter', 
         build = ':TSUpdate', 
@@ -38,7 +49,7 @@ local plugins = {
         --git functionality 
         ('tpope/vim-fugitive'), 
         --pretty indents
-	{'lukas-reineke/indent-blankline.nvim', main = "ibl", opts={}}, 
+	    {'lukas-reineke/indent-blankline.nvim', main = "ibl", opts={}}, 
         --lsp plugins 
         ('williamboman/mason.nvim'), 
         ('williamboman/mason-lspconfig.nvim'), 
@@ -74,4 +85,5 @@ local plugins = {
 }
 
 }
+
 require("lazy").setup(plugins, {})
