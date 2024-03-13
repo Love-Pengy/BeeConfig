@@ -35,9 +35,13 @@ local plugins = {
 	
     --open obsidian from within neovim (I made this!!:3)
     'Love-Pengy/obsidianOpener.nvim',  
+    
+    --automatic highlight disabling when done with search 
+    'romainl/vim-cool', 
 
 	--colorscheme maker
 	'rktjmp/lush.nvim', 
+
 	--my colorscheme
 	'Love-Pengy/SunflowerBee', 
 
