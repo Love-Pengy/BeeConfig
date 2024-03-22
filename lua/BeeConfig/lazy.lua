@@ -41,7 +41,17 @@ local plugins = {
 
 	--colorscheme maker
 	'rktjmp/lush.nvim', 
-
+    
+    --smoove move   
+    {
+      'declancm/cinnamon.nvim',
+      config = function() require('cinnamon').setup({
+            default_delay = 1.5, 
+            hide_cursor = true,
+            }) end
+    }, 
+    --get good scrub 
+    'ThePrimeagen/vim-be-good', 
 	--my colorscheme
 	'Love-Pengy/SunflowerBee', 
 
