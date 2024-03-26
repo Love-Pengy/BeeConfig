@@ -5,8 +5,6 @@ vim.cmd("set relativenumber")
 --enable colored line on cursor 
 vim.cmd("set cursorline")
 
-
-
 --will try to be smart about when tabbing so will use multuple if needed 
 vim.cmd("set smarttab")
 

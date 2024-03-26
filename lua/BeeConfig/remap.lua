@@ -1,21 +1,36 @@
 vim.g.mapleader = " "
 
+
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 
 --smart moves
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
+--makes search terms stay in the middle
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
+
+--allows paste without removing current buffer
 vim.keymap.set("x", "<leader>p", "\"_dP")
 
-vim.keymap.set("n", "y", "\"+y")
-vim.keymap.set("v", "y", "\"+y")
-vim.keymap.set("n", "y", "\"+Y")
+vim.keymap.set("n", "y", "y")
+vim.keymap.set("v", "y", "y")
+vim.keymap.set("n", "y", "y")
 
+
+
+
+--copy to system clipboard
+
+vim.keymap.set("n", "<leader>y", "\"+y")
+vim.keymap.set("v", "<leader>y", "\"+y")
+vim.keymap.set("n", "<leader>y", "\"+Y")
+
+--allows use of d without copying 
 vim.keymap.set("n", "d", "\"_d")
 vim.keymap.set("v", "d", "\"_d")
+
 
 
 --a little encouragement
@@ -38,6 +53,7 @@ vim.keymap.set("n", '<leader><S-Tab>', ':bprev<CR>')
 
 --inverse tab in insert mode
 vim.keymap.set("i", '<S-Tab>', '<C-d>')
+
 --tabs in visual mode
 vim.keymap.set("v", '<S-Tab>', '<<') 
 vim.keymap.set("v", '<Tab>', '>>') 

@@ -46,7 +46,7 @@ local plugins = {
     {
       'declancm/cinnamon.nvim',
       config = function() require('cinnamon').setup({
-            default_delay = 1.5, 
+            default_delay = .25, 
             hide_cursor = true,
             }) end
     }, 
