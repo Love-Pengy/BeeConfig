@@ -16,7 +16,15 @@ vim.opt.rtp:prepend(lazypath)
 vim.g.mapleader = " "
 
 local plugins = {
-{
+	{
+        --markdown plugin
+        {
+            "iamcco/markdown-preview.nvim",
+            cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+            ft = { "markdown" },
+            build = function() vim.fn["mkdp#util#install"]() end,
+        }, 
+
         --file/project searching 
          {
           'nvim-telescope/telescope.nvim', version = '0.1.4',
@@ -43,6 +51,7 @@ local plugins = {
 	'rktjmp/lush.nvim', 
     
     --smoove move   
+    --[[
     {
       'declancm/cinnamon.nvim',
       config = function() require('cinnamon').setup({
@@ -50,6 +59,7 @@ local plugins = {
             hide_cursor = true,
             }) end
     }, 
+    ]]
     --get good scrub 
     'ThePrimeagen/vim-be-good', 
 	--my colorscheme
