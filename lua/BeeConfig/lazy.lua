@@ -17,6 +17,13 @@ vim.g.mapleader = " "
 
 local plugins = {
 	{
+        --BMO!!
+        {
+            "Love-Pengy/minintro.nvim",
+            opts = { color = "#63bda4" }, 
+            config = true,
+            lazy = false
+        }, 
         --markdown plugin
         {
             "iamcco/markdown-preview.nvim",

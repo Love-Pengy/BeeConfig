@@ -1,7 +1,7 @@
 
 " set to 1, nvim will open the preview window after entering the Markdown buffer
 " 
-let g:mkdp_auto_start = 1
+let g:mkdp_auto_start = 0
 
 " set to 1, the nvim will auto close current preview window when changing
 " from Markdown buffer to another buffer"
