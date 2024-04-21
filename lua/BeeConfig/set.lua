@@ -30,13 +30,17 @@ vim.opt.backup = false
 vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
 vim.opt.undofile = true
 
+--highlight current search 
 vim.opt.hlsearch = true
+
+--show search while typing it 
 vim.opt.incsearch = true
 
+--color compat
 vim.opt.termguicolors = true
 
---brings the text up or when hitting 8 above or below the top or bottom 
-vim.opt.scrolloff = 8
+--brings the text up or when hitting 10 above or below the top or bottom 
+vim.opt.scrolloff = 10
 
 --enable cursor to go one more char in normal mode
 vim.cmd("set ve+=onemore")
@@ -47,4 +51,7 @@ vim.opt.mouse = ""
 --colorscheme fixing 
 vim.cmd("set numberwidth=1")
 
-	
+
+-- Case-insensitive searching UNLESS \C or one or more capital letters in the search term
+vim.opt.ignorecase = true
+vim.opt.smartcase = true

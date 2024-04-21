@@ -1,3 +1,8 @@
+return {
+
+    'nvim-treesitter/nvim-treesitter', 
+    opt = {build = ':TSUpdate'}, 
+    config = function(opt)
 require'nvim-treesitter.configs'.setup {
 
   -- Install parsers synchronously (only applied to `ensure_installed`)
@@ -47,4 +52,6 @@ require'nvim-treesitter.configs'.setup {
     -- Instead of true it can also be a list of languages
     additional_vim_regex_highlighting = false,
   },
+}
+end, 
 }

@@ -1,2 +1,0 @@
-require('obsidianOpener').setup("ObsidianGitSync") 
-
