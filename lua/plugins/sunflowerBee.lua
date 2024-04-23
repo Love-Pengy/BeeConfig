@@ -1,7 +1,7 @@
 return {
     'Love-Pengy/SunflowerBee', 
-    opt = {lazy = true}, 
-	config = function(opt)
+    opts = {lazy = true}, 
+	config = function(opts)
 		vim.cmd.colorscheme("SunflowerBee")
 	end, 
 

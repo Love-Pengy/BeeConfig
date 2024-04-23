@@ -1,7 +1,7 @@
 return {
     "jiriks74/presence.nvim",
-    opt =  {event = "UIEnter"}, 
-    config = function(opt)
+    opts =  {event = "UIEnter"}, 
+    config = function(opts)
         -- The setup config table shows all available config options with their default values:
         require("presence").setup({
             -- General options

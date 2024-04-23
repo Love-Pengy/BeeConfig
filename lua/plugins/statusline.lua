@@ -1,6 +1,7 @@
 return {
     "MunifTanjim/nougat.nvim", 
-    config = function()
+    opts = {event = "UIEnter"}, 
+    config = function(opts)
         local nougat = require("nougat")
         local core = require("nougat.core")
         local Bar = require("nougat.bar")

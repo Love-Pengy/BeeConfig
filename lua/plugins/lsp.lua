@@ -1,7 +1,7 @@
 return {
 
     'VonHeikemen/lsp-zero.nvim',
-    opt = {branch = 'v3.x',
+    opts = {branch = 'v3.x',
         dependencies = {
             -- LSP Support
             {'neovim/nvim-lspconfig'},
@@ -14,10 +14,11 @@ return {
             {'saadparwaiz1/cmp_luasnip'}, 
             {'hrsh7th/cmp-nvim-lua'}, 
             {'rafamadriz/friendly-snippets'}, 
-        }
+        }, 
+        event = "InsertEnter"
     }, 
 
-    config = function(opt)
+    config = function(opts)
         local lsp_zero = require('lsp-zero')
 
         lsp_zero.on_attach(function(client, bufnr)

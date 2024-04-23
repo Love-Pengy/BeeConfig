@@ -1,8 +1,8 @@
 return {
 
 'lukas-reineke/indent-blankline.nvim',
-opt = {main = "ibl", opts={}}, 
-config = function(opt)
+opts = {main = "ibl", opts={}}, 
+config = function(opts)
 
 local highlight = {
     "Color1",

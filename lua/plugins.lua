@@ -1,6 +1,7 @@
 return {
     {
         {
+            'nvim-lua/plenary.nvim', 
             --BMO!!
             {
                 "Love-Pengy/minintro.nvim",
@@ -9,25 +10,14 @@ return {
                 lazy = false
             }, 
             --markdown plugin
-            {
-                "iamcco/markdown-preview.nvim",
-                cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
-                ft = { "markdown" },
-                build = function() vim.fn["mkdp#util#install"]() end,
-            }, 
+            "iamcco/markdown-preview.nvim",
 
             --file/project searching 
-            {
-                'nvim-telescope/telescope.nvim', version = '0.1.4',
-                dependencies = { {'nvim-lua/plenary.nvim'} }
-            },
+            'nvim-telescope/telescope.nvim', 
 
 
             --discord rich presence
-            {
-                "jiriks74/presence.nvim",
-                event = "UIEnter",
-            },
+            "jiriks74/presence.nvim",
 
             --telescope search helper
             'sharkdp/fd', 
@@ -43,20 +33,20 @@ return {
 
             --smoove move   
             --[[
-    {
-      'declancm/cinnamon.nvim',
-      config = function() require('cinnamon').setup({
-            default_delay = .25, 
-            hide_cursor = true,
-            }) end
-    }, 
-    ]]
+            {
+              'declancm/cinnamon.nvim',
+              config = function() require('cinnamon').setup({
+                    default_delay = .25, 
+                    hide_cursor = true,
+                    }) end
+            }, 
+            ]]
 
             --get good scrub 
             'ThePrimeagen/vim-be-good', 
 
             --my colorscheme
-            --'Love-Pengy/SunflowerBee', 
+            'Love-Pengy/SunflowerBee', 
 
             --syntax tree 
             'nvim-treesitter/nvim-treesitter', 

@@ -1,8 +1,7 @@
-return {
-    
+return { 
     'akinsho/bufferline.nvim',
-    opt = {version = "*", dependencies = 'nvim-tree/nvim-web-devicons'}, 
-    config = function(opt)
+    opts = {version = "*", dependencies = 'nvim-tree/nvim-web-devicons', event = "UIEnter"}, 
+    config = function(opts)
         vim.opt.termguicolors = true
 
             local bufferline = require('bufferline')
