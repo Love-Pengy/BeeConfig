@@ -1,6 +1,6 @@
 return { 
     'akinsho/bufferline.nvim',
-    opts = {version = "*", dependencies = 'nvim-tree/nvim-web-devicons', event = "UIEnter"}, 
+    opts = {version = "*", event = "UIEnter"}, 
     config = function(opts)
         vim.opt.termguicolors = true
 

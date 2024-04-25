@@ -1,26 +1,15 @@
 return {
 
     'VonHeikemen/lsp-zero.nvim',
+    'williamboman/mason.nvim', 
+    'mason-lspconfig',
     opts = {branch = 'v3.x',
-        dependencies = {
-            -- LSP Support
-            {'neovim/nvim-lspconfig'},
-            -- Autocompletion
-            {'hrsh7th/nvim-cmp'},
-            {'hrsh7th/cmp-nvim-lsp'},
-            {'L3MON4D3/LuaSnip'},
-            {'hrsh7th/cmp-buffer'}, 
-            {'hrsh7th/cmp-path'}, 
-            {'saadparwaiz1/cmp_luasnip'}, 
-            {'hrsh7th/cmp-nvim-lua'}, 
-            {'rafamadriz/friendly-snippets'}, 
-        }, 
         event = "InsertEnter"
     }, 
 
     config = function(opts)
-        local lsp_zero = require('lsp-zero')
 
+        local lsp_zero = require('lsp-zero')
         lsp_zero.on_attach(function(client, bufnr)
             local opts = {buffer = bufnr, remap = false}
 

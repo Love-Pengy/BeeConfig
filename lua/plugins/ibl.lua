@@ -1,7 +1,9 @@
 return {
 
+--pretty indent bars
 'lukas-reineke/indent-blankline.nvim',
-opts = {main = "ibl", opts={}}, 
+opts = {main = "ibl", opts={}, event = "UIEnter"}, 
+
 config = function(opts)
 
 local highlight = {

@@ -1,5 +1,4 @@
 return {
-
     'nvim-treesitter/nvim-treesitter', 
     opts = {build = ':TSUpdate'}, 
     config = function(opts)

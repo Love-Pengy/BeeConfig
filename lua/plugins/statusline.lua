@@ -1,4 +1,5 @@
 return {
+    --status line (the bar at the bottom)
     "MunifTanjim/nougat.nvim", 
     opts = {event = "UIEnter"}, 
     config = function(opts)

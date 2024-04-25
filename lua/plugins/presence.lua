@@ -1,4 +1,5 @@
 return {
+    --discord rich presence
     "jiriks74/presence.nvim",
     opts =  {event = "UIEnter"}, 
     config = function(opts)

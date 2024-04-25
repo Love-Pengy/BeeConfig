@@ -1,7 +1,7 @@
 return {
     {
         {
-            'nvim-lua/plenary.nvim', 
+
             --BMO!!
             {
                 "Love-Pengy/minintro.nvim",
@@ -9,78 +9,59 @@ return {
                 config = true,
                 lazy = false
             }, 
+
             --markdown plugin
-            "iamcco/markdown-preview.nvim",
+            {
+                "iamcco/markdown-preview.nvim",
+                cmd = "MarkdownPreview" 
+            }, 
 
             --file/project searching 
-            'nvim-telescope/telescope.nvim', 
-
-
-            --discord rich presence
-            "jiriks74/presence.nvim",
-
-            --telescope search helper
-            'sharkdp/fd', 
-
-            --open obsidian from within neovim (I made this!!:3)
-            'Love-Pengy/obsidianOpener.nvim',  
+            {
+                'nvim-telescope/telescope.nvim', 
+                dependencies = {'nvim-lua/plenary.nvim', 'sharkdp/fd'}
+            }, 
 
             --automatic highlight disabling when done with search 
             'romainl/vim-cool', 
 
             --colorscheme maker
-            'rktjmp/lush.nvim', 
-
-            --smoove move   
-            --[[
             {
-              'declancm/cinnamon.nvim',
-              config = function() require('cinnamon').setup({
-                    default_delay = .25, 
-                    hide_cursor = true,
-                    }) end
+                'rktjmp/lush.nvim', 
+                cmd = "Lushify"
             }, 
-            ]]
 
             --get good scrub 
-            'ThePrimeagen/vim-be-good', 
+            {
+                'ThePrimeagen/vim-be-good', 
+                cmd = "VimBeGood"
+            }, 
 
             --my colorscheme
             'Love-Pengy/SunflowerBee', 
 
             --syntax tree 
-            'nvim-treesitter/nvim-treesitter', 
-            build = ':TSUpdate', 
+            {
+                'nvim-treesitter/nvim-treesitter', 
+                build = ':TSUpdate' 
+            },
+
+            {
+                'akinsho/bufferline.nvim',
+                dependencies = 'nvim-tree/nvim-web-devicons'
+            }, 
 
             --undo plugin
             ('mbbill/undotree'), 
 
-            --git functionality 
-            ('tpope/vim-fugitive'), 
-
-            --pretty indents
-            {'lukas-reineke/indent-blankline.nvim', main = "ibl", opts={}}, 
-
-            --lsp plugins 
-            ('williamboman/mason.nvim'), 
-
-            ('williamboman/mason-lspconfig.nvim'), 
-
-            ('neovim/nvim-lspconfig'), 
-
-            --pretty status line (bottom)
-            ("MunifTanjim/nougat.nvim"), 
-
-            --bufferline (top)
-            {'akinsho/bufferline.nvim', version = "*", dependencies = 'nvim-tree/nvim-web-devicons'}, 
-
             --pretty delimiters 
-            'HiPhish/rainbow-delimiters.nvim', 
-
-            --lsp-zero setup
             {
-                'VonHeikemen/lsp-zero.nvim',
-                branch = 'v3.x',
+                'lukas-reineke/indent-blankline.nvim',
+                dependencies = 'HiPhish/rainbow-delimiters.nvim', 
+            }, 
+    
+            {
+                'VonHeikemen/lsp-zero.nvim', 
                 dependencies = {
                     -- LSP Support
                     {'neovim/nvim-lspconfig'},
@@ -93,10 +74,9 @@ return {
                     {'saadparwaiz1/cmp_luasnip'}, 
                     {'hrsh7th/cmp-nvim-lua'}, 
                     {'rafamadriz/friendly-snippets'}, 
-
-
                 }
-            } 
+            }
+
 
         }
 
