@@ -1,27 +1,31 @@
 return {
-    "hrsh7th/nvim-cmp",
-    dependencies = {
+    {
         --displays completions from the lsp attached to buffer
         'hrsh7th/cmp-nvim-lsp',
-        --snippet engine (snippets are the recommendations you get based off of previous code)
-        'L3MON4D3/LuaSnip',
-        --luasnip completion source (connects luasnip with cmp)
-        'saadparwaiz1/cmp_luasnip',
         --source for everything in the current buffer
         'hrsh7th/cmp-buffer',
         --source for the vim command line
         'hrsh7th/cmp-cmdline',
         --supplies cmp with path completions
-        'hrsh7th/cmp-path',
-        --collection of snippets from languages 
-        'rafamadriz/friendly-snippets',
+        'hrsh7th/cmp-path'
     },
-
+    {
+    --snippet engine (snippets are the recommendations you get based off of previous code)
+    'L3MON4D3/LuaSnip',
+        dependencies = {
+            --luasnip completion source (connects luasnip with cmp)
+            'saadparwaiz1/cmp_luasnip',
+            --collection of snippets from languages 
+            'rafamadriz/friendly-snippets',
+        },
+    },
+    {
+    "hrsh7th/nvim-cmp",
     config = function()
         local cmp = require('cmp')
+        require("luasnip.loaders.from_vscode").lazy_load()
         cmp.setup({
             snippet = {
-              -- REQUIRED - you must specify a snippet engine
               expand = function(args)
                 require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
                 -- require('snippy').expand_snippet(args.body) -- For `snippy` users.
@@ -48,10 +52,8 @@ return {
               -- { name = 'snippy' }, -- For snippy users.
             }, {
               { name = 'buffer' },
-            })
+            }),
         })
-
     end,
-
-
+    },
 }
