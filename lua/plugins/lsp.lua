@@ -1,57 +1,55 @@
 return {
+    {
+        --plugin for gettins language servers 
+        "williamboman/mason.nvim",
+        config = function()
+            require("mason").setup()
+        end
+    },
+    {
+        --abstracts some of the mason installs away from us 
+        "williamboman/mason-lspconfig.nvim",
+        config = function()
+            require("mason-lspconfig").setup({
+                ensure_installed = {"lua_ls", "clangd"},
+                automatic_installation = true,
+            })
+        end
+    },
+    {
+        --makes lsp and client talk to each other (they're best friends :3)
+        "neovim/nvim-lspconfig",
+        config = function()
+            local lspconfig = require('lspconfig')
+            vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {})
+            vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, {})
+            vim.keymap.set("n", "<leader>gr", vim.lsp.buf.references, {})
+            vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
+            lspconfig.lua_ls.setup({})
+            lspconfig.clangd.setup({
+                filetypes = {"c", "h", "cpp"},
+                cmd = {"clangd"},
+                single_file_support = true,
+            })
+        end
+    },
 
-    'VonHeikemen/lsp-zero.nvim',
-    'williamboman/mason.nvim', 
-    'mason-lspconfig',
-    opts = {branch = 'v3.x',
-        event = "InsertEnter"
-    }, 
+    {
+        "nvim-telescope/telescope-ui-select.nvim",
+            config = function()
+                require("telescope").setup {
+                    extensions = {
+                        ["ui-select"] = {
+                            require("telescope.themes").get_dropdown {
+                            }
+                        }
+                    }
+                }
+                require("telescope").load_extension("ui-select")
+            end
 
-    config = function(opts)
 
-        local lsp_zero = require('lsp-zero')
-        lsp_zero.on_attach(function(client, bufnr)
-            local opts = {buffer = bufnr, remap = false}
+        },
 
-            vim.keymap.set("n", "<leader>gd", function() vim.lsp.buf.definition() end, opts)
-            vim.keymap.set("n", "<leader>gr", function() vim.lsp.buf.references() end, opts)
+    }
 
-        end)
-
-        require('mason').setup({})
-        require('mason-lspconfig').setup({
-            automatic_installation = true, 
-            handlers = {
-                lsp_zero.default_setup,
-                lua_ls = function()
-                    local lua_opts = lsp_zero.nvim_lua_ls()
-                    require('lspconfig').lua_ls.setup(lua_opts)
-                end,
-            }
-        })
-
-        local cmp = require('cmp')
-        local cmp_select = {behavior = cmp.SelectBehavior.Select}
-
-        cmp.setup({
-            window = {
-                completion = cmp.config.window.bordered(), 
-                documentation = cmp.config.window.bordered(),
-            }, 
-            sources = {
-                {name = 'path'},
-                {name = 'nvim_lsp'},
-                {name = 'nvim_lua'},
-                {name = 'luasnip', keyword_length = 3},
-                {name = 'buffer', keyword_length = 3},
-            },
-            formatting = lsp_zero.cmp_format(),
-            mapping = cmp.mapping.preset.insert({
-                ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
-                ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
-                ['<C-y>'] = cmp.mapping.confirm({ select = true }),
-                ['<C-Space>'] = cmp.mapping.complete(),
-            }),
-        })
-    end, 
-}
