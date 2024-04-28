@@ -59,8 +59,8 @@ return {
 
         end
     },
-
     {
+        --gives pretty ui to code actions
         "nvim-telescope/telescope-ui-select.nvim",
             config = function()
                 require("telescope").setup {
@@ -76,6 +76,9 @@ return {
     },
     {
         "nvimtools/none-ls.nvim",
+        dependencies = {
+            "nvimtools/none-ls-extras.nvim",
+        },
         config = function()
             local null_ls = require("null-ls")
 
@@ -85,15 +88,14 @@ return {
                 sources = {
                     --lua 
                     null_ls.builtins.formatting.stylua,
-                    null_ls.builtins.diagnostics.selene,  
+                    null_ls.builtins.diagnostics.selene,
                     --c
                     null_ls.builtins.formatting.clang_format,
-                    --cant find
-                    null_ls.builtins.diagnostics.gccdiag,
+                    require("none-ls.diagnostics.cpplint"),
                     --python
                     null_ls.builtins.formatting.isort,
                     null_ls.builtins.formatting.black,
-                    null_ls.builtins.diagnostics.pylint,  
+                    null_ls.builtins.diagnostics.pylint,
                 },
             })
             vim.keymap.set("n", "<leader>gf", vim.lsp.buf.format, {})
