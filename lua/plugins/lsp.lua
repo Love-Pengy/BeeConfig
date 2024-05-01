@@ -1,48 +1,41 @@
 return {
     {
-        --plugin for gettins language servers 
+        --plugin for gettins language servers
         "williamboman/mason.nvim",
         config = function()
             require("mason").setup()
-        end
+        end,
     },
     {
-        --abstracts some of the mason installs away from us 
+        --abstracts some of the mason installs away from us
         "williamboman/mason-lspconfig.nvim",
         config = function()
             require("mason-lspconfig").setup({
-                ensure_installed = {"lua_ls", "clangd"},
+                ensure_installed = { "lua_ls", "clangd" },
                 automatic_installation = true,
             })
-        end
+        end,
     },
     {
         --makes lsp and client talk to each other (they're best friends :3)
         "neovim/nvim-lspconfig",
         config = function()
+            --function for changing icons on the left side of screen https://github.com/neovim/nvim-lspconfig/wiki/UI-Customization
+            local signs = { Error = "✘", Warn = "▲", Hint = "⚑", Info = " " }
+            for type, icon in pairs(signs) do
+                local hl = "DiagnosticSign" .. type
+                vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+            end
 
-            local lspconfig = require('lspconfig')
+            local lspconfig = require("lspconfig")
             vim.diagnostic.config({
-                virtual_text = true,
-                signs = {
-                    error = '✘',
-                    warn = '▲',
-                    hint = '⚑',
-                    info = '»'
+                virtual_text = {
+                    prefix = "󰻀",
                 },
                 underline = false,
                 update_in_insert = false,
                 severity_sort = true,
             })
-
-            --[[
-            vim.diagnostic.set_sign_icons({
-                    error = '✘',
-                warn = '▲',
-                hint = '⚑',
-                info = '»'
-            })
---]]
             vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {})
             vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, {})
             vim.keymap.set("n", "<leader>gr", vim.lsp.buf.references, {})
@@ -50,35 +43,34 @@ return {
 
             lspconfig.lua_ls.setup({})
             lspconfig.clangd.setup({
-                filetypes = {"c", "h", "cpp"},
-                cmd = {"clangd", "--background-index"},
+                filetypes = { "c", "h", "cpp" },
+                cmd = { "clangd", "--background-index" },
                 single_file_support = true,
                 root_dir = lspconfig.util.root_pattern(
-                    '.clangd',
-                    '.clang-tidy',
-                    '.clang-format',
-                    'compile_commands.json',
-                    'compile_flags.txt',
-                    'configure.ac',
-                    '.git'
-                )
+                    ".clangd",
+                    ".clang-tidy",
+                    ".clang-format",
+                    "compile_commands.json",
+                    "compile_flags.txt",
+                    "configure.ac",
+                    ".git"
+                ),
             })
-        end
+        end,
     },
     {
         --gives pretty ui to code actions
         "nvim-telescope/telescope-ui-select.nvim",
-            config = function()
-                require("telescope").setup {
-                    extensions = {
-                        ["ui-select"] = {
-                            require("telescope.themes").get_dropdown {
-                            }
-                        }
-                    }
-                }
-                require("telescope").load_extension("ui-select")
-            end
+        config = function()
+            require("telescope").setup({
+                extensions = {
+                    ["ui-select"] = {
+                        require("telescope.themes").get_dropdown({}),
+                    },
+                },
+            })
+            require("telescope").load_extension("ui-select")
+        end,
     },
     {
         --manages linters and formatters
@@ -95,7 +87,7 @@ return {
                 --diagnostics = linter
                 --formatting = formatter
                 sources = {
-                    --lua 
+                    --lua
                     null_ls.builtins.formatting.stylua,
                     null_ls.builtins.diagnostics.selene,
                     --c
@@ -122,10 +114,9 @@ return {
                             end,
                         })
                     end
-                end,            })
+                end,
+            })
             vim.keymap.set("n", "<leader>gf", vim.lsp.buf.format, {})
-        end
-    }
+        end,
+    },
 }
-
-
