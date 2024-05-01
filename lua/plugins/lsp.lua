@@ -16,14 +16,12 @@ return {
             })
         end
     },
-
     {
         --makes lsp and client talk to each other (they're best friends :3)
         "neovim/nvim-lspconfig",
         config = function()
 
             local lspconfig = require('lspconfig')
-
             vim.diagnostic.config({
                 virtual_text = true,
                 signs = {
@@ -36,6 +34,7 @@ return {
                 update_in_insert = false,
                 severity_sort = true,
             })
+
             --[[
             vim.diagnostic.set_sign_icons({
                     error = '✘',
@@ -52,11 +51,18 @@ return {
             lspconfig.lua_ls.setup({})
             lspconfig.clangd.setup({
                 filetypes = {"c", "h", "cpp"},
-                cmd = {"clangd"},
+                cmd = {"clangd", "--background-index"},
                 single_file_support = true,
-                root_dir = lspconfig.util.find_node_modules_ancestor
+                root_dir = lspconfig.util.root_pattern(
+                    '.clangd',
+                    '.clang-tidy',
+                    '.clang-format',
+                    'compile_commands.json',
+                    'compile_flags.txt',
+                    'configure.ac',
+                    '.git'
+                )
             })
-
         end
     },
     {
@@ -75,13 +81,16 @@ return {
             end
     },
     {
+        --manages linters and formatters
         "nvimtools/none-ls.nvim",
         dependencies = {
+            --lets me use cpplint
             "nvimtools/none-ls-extras.nvim",
         },
         config = function()
             local null_ls = require("null-ls")
-
+            --https://youtu.be/lsFoZIg-oDs?si=SKp4zZV3yiECWfJb
+            local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
             null_ls.setup({
                 --diagnostics = linter
                 --formatting = formatter
@@ -97,9 +106,24 @@ return {
                     null_ls.builtins.formatting.black,
                     null_ls.builtins.diagnostics.pylint,
                 },
-            })
+                --check we're in file that supports formatting and get rid of already
+                --running formatters
+                on_attach = function(client, bufnr)
+                    if client.supports_method("textDocument/formatting") then
+                        vim.api.nvim_clear_autocmds({
+                            group = augroup,
+                            buffer = bufnr,
+                        })
+                        vim.api.nvim_create_autocmd("BufWritePre", {
+                            group = augroup,
+                            buffer = bufnr,
+                            callback = function()
+                                vim.lsp.buf.format({ bufnr = bufnr })
+                            end,
+                        })
+                    end
+                end,            })
             vim.keymap.set("n", "<leader>gf", vim.lsp.buf.format, {})
-
         end
     }
 }
