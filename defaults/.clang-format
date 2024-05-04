@@ -1,7 +1,7 @@
 ---
 Language:        Cpp
 AccessModifierOffset: -1
-AlignAfterOpenBracket: Align
+AlignAfterOpenBracket: AlwaysBreak
 AlignArrayOfStructures: None
 AlignConsecutiveAssignments:
   Enabled:         false
@@ -61,6 +61,7 @@ AttributeMacros:
 BinPackArguments: true
 BinPackParameters: true
 BitFieldColonSpacing: Both
+BreakBeforeBraces: Custom
 BraceWrapping:
   AfterCaseLabel:  false
   AfterClass:      false
@@ -73,9 +74,9 @@ BraceWrapping:
   AfterStruct:     false
   AfterUnion:      false
   BeforeCatch:     false
-  BeforeElse:      false
+  BeforeElse:      true
   BeforeLambdaBody: false
-  BeforeWhile:     false
+  BeforeWhile:     true
   IndentBraces:    false
   SplitEmptyFunction: true
   SplitEmptyRecord: true
@@ -86,7 +87,6 @@ BreakAfterJavaFieldAnnotations: false
 BreakArrays:     true
 BreakBeforeBinaryOperators: None
 BreakBeforeConceptDeclarations: Always
-BreakBeforeBraces: Attach
 BreakBeforeInlineASMColon: OnlyMultiline
 BreakBeforeTernaryOperators: true
 BreakConstructorInitializers: BeforeColon
@@ -98,7 +98,7 @@ CompactNamespaces: false
 ConstructorInitializerIndentWidth: 4
 ContinuationIndentWidth: 4
 Cpp11BracedListStyle: true
-DerivePointerAlignment: true
+DerivePointerAlignment: false
 DisableFormat:   false
 EmptyLineAfterAccessModifier: Never
 EmptyLineBeforeAccessModifier: LogicalBlock

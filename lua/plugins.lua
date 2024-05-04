@@ -8,17 +8,13 @@ return {
 				config = true,
 				lazy = false,
 			},
-
-			--markdown plugin
 			{
 				"iamcco/markdown-preview.nvim",
-				cmd = "MarkdownPreview",
-			},
-
-			--file/project searching
-			{
-				"nvim-telescope/telescope.nvim",
-				dependencies = { "nvim-lua/plenary.nvim", "sharkdp/fd" },
+				cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+				ft = { "markdown" },
+				build = function()
+					vim.fn["mkdp#util#install"]()
+				end,
 			},
 
 			--automatic highlight disabling when done with search
@@ -34,27 +30,6 @@ return {
 			{
 				"ThePrimeagen/vim-be-good",
 				cmd = "VimBeGood",
-			},
-
-			--my colorscheme
-			"Love-Pengy/SunflowerBee",
-
-			--syntax tree
-			{
-				"nvim-treesitter/nvim-treesitter",
-				build = ":TSUpdate",
-			},
-
-			{
-				"akinsho/bufferline.nvim",
-				dependencies = "nvim-tree/nvim-web-devicons",
-			},
-			"mbbill/undotree",
-
-			--pretty delimiters
-			{
-				"lukas-reineke/indent-blankline.nvim",
-				dependencies = "HiPhish/rainbow-delimiters.nvim",
 			},
 		},
 	},

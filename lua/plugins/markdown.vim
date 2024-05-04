@@ -1,12 +1,7 @@
 
 return {
     "iamcco/markdown-preview.nvim",
-    opt = {
-        cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
-        ft = { "markdown" },
-        build = function() vim.fn["mkdp#util#install"]() end,
-    }, 
-    config = function(opt)
+    config = function()
     " set to 1, nvim will open the preview window after entering the Markdown buffer
     " 
     let g:mkdp_auto_start = 0
