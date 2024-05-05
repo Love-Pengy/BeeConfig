@@ -23,7 +23,12 @@ return {
 			--colorscheme maker
 			{
 				"rktjmp/lush.nvim",
+				dependencies = {
+					--colorscheme exporter
+					"rktjmp/shipwright.nvim",
+				},
 				cmd = "Lushify",
+				enabled = false,
 			},
 
 			--get good scrub
