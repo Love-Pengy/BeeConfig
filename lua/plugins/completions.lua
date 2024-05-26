@@ -44,10 +44,24 @@ return {
 				sources = cmp.config.sources({
 					{ name = "nvim_lsp" },
 					{ name = "luasnip" }, -- For luasnip users.
-					{ name = "path" },
+					{ name = "path", keyword_length = 3 },
 					{ name = "buffer" },
-					{ name = "cmdline" },
 				}),
+			})
+			cmp.setup.cmdline({ "/", "?" }, {
+				mapping = cmp.mapping.preset.cmdline(),
+				sources = {
+					{ name = "buffer" },
+				},
+			})
+			cmp.setup.cmdline(":", {
+				mapping = cmp.mapping.preset.cmdline(),
+				sources = cmp.config.sources({
+					{ name = "path", keyword_length = 3 },
+				}, {
+					{ name = "cmdline", keyword_length = 3 },
+				}),
+				matching = { disallow_symbol_nonprefix_matching = false },
 			})
 		end,
 	},

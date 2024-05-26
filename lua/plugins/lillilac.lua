@@ -1,5 +1,6 @@
 return {
-    "Love-Pengy/lillilac.nvim",
+    --dir = "/home/Bee/Projects/LilLilacLush",
+    "love-pengy/lillilac.nvim",
     opts = { lazy = true },
     config = function(opts)
         vim.cmd.colorscheme("lillilac")

@@ -41,6 +41,7 @@ return {
 			vim.keymap.set("n", "<leader>gr", vim.lsp.buf.references, {})
 			vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
 
+			lspconfig.marksman.setup({})
 			lspconfig.lua_ls.setup({})
 			lspconfig.clangd.setup({
 				filetypes = { "c", "h", "cpp" },
@@ -86,6 +87,7 @@ return {
 			null_ls.setup({
 				--diagnostics = linter
 				--formatting = formatter
+				debug = true,
 				sources = {
 					--lua
 					null_ls.builtins.formatting.stylua,
@@ -97,6 +99,9 @@ return {
 					null_ls.builtins.formatting.isort,
 					null_ls.builtins.formatting.black,
 					null_ls.builtins.diagnostics.pylint,
+					--markdown
+					null_ls.builtins.diagnostics.markdownlint,
+					null_ls.builtins.formatting.markdownlint,
 				},
 				--check we're in file that supports formatting and get rid of already
 				--running formatters
