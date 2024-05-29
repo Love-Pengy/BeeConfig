@@ -40,12 +40,11 @@ return {
 			vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, {})
 			vim.keymap.set("n", "<leader>gr", vim.lsp.buf.references, {})
 			vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
-
 			lspconfig.marksman.setup({})
 			lspconfig.lua_ls.setup({})
 			lspconfig.clangd.setup({
 				filetypes = { "c", "h", "cpp" },
-				cmd = { "clangd", "--background-index" },
+				cmd = { "clangd", "--background-index", "--offset-encoding=utf-16" },
 				single_file_support = true,
 				root_dir = lspconfig.util.root_pattern(
 					".clangd",
@@ -79,6 +78,8 @@ return {
 		dependencies = {
 			--lets me use cpplint
 			"nvimtools/none-ls-extras.nvim",
+			-- lets me use cspell
+			"davidmh/cspell.nvim",
 		},
 		config = function()
 			local null_ls = require("null-ls")
@@ -87,7 +88,7 @@ return {
 			null_ls.setup({
 				--diagnostics = linter
 				--formatting = formatter
-				debug = true,
+				--debug = true,
 				sources = {
 					--lua
 					null_ls.builtins.formatting.stylua,
@@ -102,6 +103,13 @@ return {
 					--markdown
 					null_ls.builtins.diagnostics.markdownlint,
 					null_ls.builtins.formatting.markdownlint,
+					--spellchecker
+					require("cspell").diagnostics.with({
+						filetypes = { "markdown", "text" },
+					}),
+					require("cspell").code_actions.with({
+						filetypes = { "markdown", "text" },
+					}),
 				},
 				--check we're in file that supports formatting and get rid of already
 				--running formatters

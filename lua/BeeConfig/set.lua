@@ -15,8 +15,8 @@ vim.cmd("set smarttab")
 vim.cmd("set autoindent")
 
 --set tabs to 4 spaces no matter what
-vim.opt.tabstop = 4      --amount of spaces for normal tabs
-vim.opt.shiftwidth = 4   -- spaces for when using << or >>
+vim.opt.tabstop = 4 --amount of spaces for normal tabs
+vim.opt.shiftwidth = 4 -- spaces for when using << or >>
 vim.opt.expandtab = true -- pressing tab key will insert spaces instead of tab character
 
 --self explainatory
@@ -39,7 +39,7 @@ vim.opt.hlsearch = true
 --show search while typing it
 vim.opt.incsearch = true
 
---color compat
+--24 bit color (required for a bunch of plugins)
 vim.opt.termguicolors = true
 
 --brings the text up or when hitting 10 above or below the top or bottom
