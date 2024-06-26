@@ -35,6 +35,8 @@ vim.keymap.set("n", "d", '"_d')
 vim.keymap.set("v", "d", '"_d')
 
 --force you to use nvim binds!
+--[[
+>>>>>>> 64f798c (reenable scroll wheel)
 vim.keymap.set("n", "<Left>", ':echoe "Use h"<CR>')
 vim.keymap.set("n", "<Right>", ':echoe "Use l"<CR>')
 vim.keymap.set("n", "<Up>", ':echoe "Use k"<CR>')
@@ -43,6 +45,9 @@ vim.keymap.set("i", "<Left>", '<ESC>:echoe "Use h"<CR>')
 vim.keymap.set("i", "<Right>", '<ESC>:echoe "Use l"<CR>')
 vim.keymap.set("i", "<Up>", '<ESC>:echoe "Use k"<CR>')
 vim.keymap.set("i", "<Down>", '<ESC>:echoe "Use j"<CR>')
+<<<<<<< HEAD
+=======
+--]]
 
 --buffer (im finna use these as tabs) keybinds
 vim.keymap.set("n", "<leader>t", ":enew<CR>")

@@ -49,7 +49,7 @@ vim.opt.scrolloff = 10
 vim.cmd("set ve+=onemore")
 
 --turn off the mouse
-vim.opt.mouse = ""
+--vim.opt.mouse = ""
 
 --colorscheme fixing
 vim.cmd("set numberwidth=1")

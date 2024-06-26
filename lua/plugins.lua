@@ -29,7 +29,7 @@ return {
 					"rktjmp/shipwright.nvim",
 				},
 				cmd = "Lushify",
-				enabled = false,
+				--enabled = false,
 			},
 
 			--get good scrub
