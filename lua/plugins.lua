@@ -29,13 +29,14 @@ return {
 					"rktjmp/shipwright.nvim",
 				},
 				cmd = "Lushify",
-				--enabled = false,
+				enabled = false,
 			},
 
 			--get good scrub
 			{
 				"ThePrimeagen/vim-be-good",
 				cmd = "VimBeGood",
+				enabled = false,
 			},
 		},
 	},
