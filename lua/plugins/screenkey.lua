@@ -7,13 +7,14 @@ return {
 	config = function(opts)
 		require("screenkey").setup({
 			win_opts = {
-				row = 1, --vim.o.lines - vim.o.cmdheight - 1,
+				row = 0, --vim.o.lines - vim.o.cmdheight - 1,
 				col = vim.o.columns - 1,
 				relative = "editor",
 				anchor = "NE",
 				width = 20,
 				height = 1,
 				border = "rounded",
+				title = "",
 			},
 			compress_after = 2,
 			clear_after = 5,
@@ -57,9 +58,9 @@ return {
 				["ALT"] = "Alt",
 				--["SUPER"] = "󰘳",
 				["<leader>"] = "<leader>",
-			},    
+			},
 		})
-        -- run screenkey off rip
-        vim.cmd "Screenkey"
+		-- run screenkey off rip
+		vim.cmd("Screenkey")
 	end,
 }

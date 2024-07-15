@@ -67,12 +67,6 @@ vim.cmd("set numberwidth=1")
 opt.ignorecase = true
 opt.smartcase = true
 
--- mouse pointer is hidden when characters are typed
-opt.mousehide = true
-
--- highlight matching brace
-opt.showmatch = true
-
 -- command line height (status line still stays)
 opt.cmdheight = 0;
 

@@ -37,7 +37,7 @@ return {
                     prefix = "󰻀",
                 },
                 underline = false,
-                update_in_insert = false,
+                update_in_insert = true,
                 severity_sort = true,
             })
             vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {})
