@@ -108,6 +108,10 @@ return {
                     --markdown
                     null_ls.builtins.diagnostics.markdownlint,
                     null_ls.builtins.formatting.markdownlint,
+                    -- html & css 
+                    null_ls.builtins.diagnostics.markuplint,
+                    null_ls.builtins.diagnostics.stylelint, 
+                    null_ls.builtins.formatting.prettier, 
                     --spellchecker
                     require("cspell").diagnostics.with({
                         filetypes = { "markdown", "text" },
@@ -115,6 +119,7 @@ return {
                     require("cspell").code_actions.with({
                         filetypes = { "markdown", "text" },
                     }),
+                    
                 },
                 --check we're in file that supports formatting and get rid of already
                 --running formatters
