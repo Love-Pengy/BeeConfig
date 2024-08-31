@@ -1,11 +1,8 @@
 # BeeConfig
+My personal neovim config 
 
-## A Config Made By A Beginner For Neovim!
+![Config Showcase](./assets/displaySS.png)
 
-+ Started using neovim recently so made this repo for my config
-+ Has beginner features for bridging the gap and learning neovim such as:
-  + arrow key disable
-  + mouse disable
-  + Inverse Tab
-  + And more!
-+ Mainly for showing people my config rather than being a drop in because I still have much to learn! 
+- Requires Neovim 10 
+
+- Meant as a reference and not a drop in as certain configuration options are tailored towards my environment
