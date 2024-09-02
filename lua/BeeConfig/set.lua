@@ -4,7 +4,7 @@ opt.number = true
 opt.relativenumber = true
 
 --make the time to accept a command to 500 ms instead of 1000 for mappings
-opt.updatetime = 100
+opt.updatetime = 500
 
 -- time to wait for a keybind to complete 
 opt.timeoutlen = 500
@@ -18,9 +18,9 @@ opt.smarttab = true
 --automatically indent in functions and what not
 opt.autoindent = true
 
---set tabs to 4 spaces no matter what
-opt.tabstop = 4 --amount of spaces for normal tabs
-opt.shiftwidth = 4 -- spaces for when using << or >>
+--set tabs to 2 spaces no matter what
+opt.tabstop = 2 --amount of spaces for normal tabs
+opt.shiftwidth = 2 -- spaces for when using << or >>
 opt.expandtab = true -- pressing tab key will insert spaces instead of tab character
 
 --self explainatory
@@ -68,6 +68,6 @@ opt.ignorecase = true
 opt.smartcase = true
 
 -- command line height (status line still stays)
-opt.cmdheight = 0;
+--opt.cmdheight = 0;
 
 
