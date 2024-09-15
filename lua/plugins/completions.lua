@@ -1,4 +1,5 @@
 return {
+  --[[
 	{
 		--displays completions from the lsp attached to buffer
 		"hrsh7th/cmp-nvim-lsp",
@@ -65,4 +66,5 @@ return {
 			})
 		end,
 	},
+  ]]--
 }
