@@ -6,10 +6,9 @@ return {
     { 'saadparwaiz1/cmp_luasnip' },
     { 'neovim/nvim-lspconfig' },
     { 'hrsh7th/cmp-nvim-lsp' },
+    { "L3MON4D3/LuaSnip" },
     { 'hrsh7th/nvim-cmp' },
-  },
-  opts = {
-    branch = 'v3.x'
+    { "rafamadriz/friendly-snippets" },
   },
   config = function(opts)
     ---
@@ -74,19 +73,18 @@ return {
     ---
     local cmp = require('cmp')
     local cmp_action = require('lsp-zero').cmp_action()
-
+    local cmp_format = require('lsp-zero').cmp_format({ details = true })
+    require("luasnip.loaders.from_vscode").lazy_load()
     cmp.setup({
       window = {
         completion = cmp.config.window.bordered(),
         documentation = cmp.config.window.bordered(),
       },
-      completion = {
-        autocomplete = false
-      },
       sources = {
         { name = 'nvim_lsp' },
         { name = 'buffer' },
         { name = 'luasnip' },
+        { name = 'path',    keyword_length = 5 },
       },
       mapping = cmp.mapping.preset.insert({
         ['<C-y>'] = cmp.mapping.confirm({ select = false }),
@@ -105,6 +103,21 @@ return {
       snippet = {
         expand = function(args)
           vim.snippet.expand(args.body)
+        end,
+      },
+      formatting = {
+        fields = { 'menu', 'abbr', 'kind' },
+        format = function(entry, item)
+          local menu_icon = {
+            nvim_lsp = 'λ',
+            luasnip = '⋗',
+            buffer = 'Ω',
+            path = '🖫',
+            nvim_lua = 'Π',
+          }
+
+          item.menu = menu_icon[entry.source.name]
+          return item
         end,
       },
     })

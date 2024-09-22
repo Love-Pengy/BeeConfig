@@ -1,3 +1,4 @@
+--[[
 return {
 	--dir = "/home/Bee/Projects/LilLilacLush",
 	"love-pengy/lillilac.nvim",
@@ -6,6 +7,7 @@ return {
 		vim.cmd.colorscheme("lillilac")
 	end,
 }
+  ]] --
 --testing
 --[[
 return {
@@ -17,3 +19,12 @@ return {
 }
 ]]
 --
+--
+--
+return {
+  'liuchengxu/space-vim-theme',
+  config = function(opts)
+    vim.cmd("set background=light")
+    vim.cmd.colorscheme("space_vim_theme")
+  end,
+}

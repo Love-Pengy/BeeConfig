@@ -7,12 +7,13 @@ return {
 				opts = { color = "#63bda4" },
 				config = true,
 				lazy = false,
-				enabled = true,
+				enabled = false,
 			},
 			{
 				"iamcco/markdown-preview.nvim",
 				cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
 				ft = { "markdown" },
+        enabled = false, 
 				build = function()
 					vim.fn["mkdp#util#install"]()
 				end,
@@ -32,12 +33,6 @@ return {
 				enabled = false,
 			},
 
-			--get good scrub
-			{
-				"ThePrimeagen/vim-be-good",
-				cmd = "VimBeGood",
-				enabled = false,
-			},
-		},
 	},
+  }, 
 }
