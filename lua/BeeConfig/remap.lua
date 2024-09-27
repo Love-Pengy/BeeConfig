@@ -1,6 +1,9 @@
 --make leader space
 vim.g.mapleader = " "
 
+--Make Ctrl+C equivalent to ESC so that the exit hint doesn't come up ove the status line
+vim.keymap.set({ "n", "v", "i" }, "<C-c>", "<Esc>")
+
 --open netrw
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 
@@ -13,9 +16,7 @@ vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
 --copy to system clipboard
-vim.keymap.set("n", "<leader>y", '"+y')
-vim.keymap.set("v", "<leader>y", '"+y')
-vim.keymap.set("n", "<leader>y", '"+Y')
+vim.keymap.set({"n", "v"}, "<leader>y", '"+y')
 
 --allows paste without removing current buffer
 vim.keymap.set("x", "<leader>p", '"_dP')
@@ -56,5 +57,5 @@ vim.keymap.set("n", "<leader><S-Tab>", ":bprev<CR>")
 vim.keymap.set("i", "<S-Tab>", "<C-d>")
 
 --tabs in visual mode
-vim.keymap.set("v", "<S-Tab>", "<<")
-vim.keymap.set("v", "<Tab>", ">>")
+-- vim.keymap.set("v", "<S-Tab>", "<<")
+-- vim.keymap.set("v", "<Tab>", ">>")
