@@ -1,13 +1,10 @@
---[[
 return {
-	--dir = "/home/Bee/Projects/LilLilacLush",
 	"love-pengy/lillilac.nvim",
-	opts = { lazy = true },
 	config = function(opts)
 		vim.cmd.colorscheme("lillilac")
 	end,
 }
-  ]] --
+
 --testing
 --[[
 return {
@@ -19,8 +16,10 @@ return {
 }
 ]]
 --
---
---
+
+
+--[[
+>>>>>>> 6354426 (up)
 return {
   'liuchengxu/space-vim-theme',
   config = function(opts)
@@ -28,3 +27,4 @@ return {
     vim.cmd.colorscheme("space_vim_theme")
   end,
 }
+--]]
