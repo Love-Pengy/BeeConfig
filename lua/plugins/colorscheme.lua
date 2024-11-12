@@ -1,8 +1,8 @@
 return {
-	"love-pengy/lillilac.nvim",
-	config = function(opts)
-		vim.cmd.colorscheme("lillilac")
-	end,
+  "love-pengy/lillilac.nvim",
+  config = function()
+    vim.cmd.colorscheme("lillilac")
+  end,
 }
 
 --testing
@@ -19,7 +19,6 @@ return {
 
 
 --[[
->>>>>>> 6354426 (up)
 return {
   'liuchengxu/space-vim-theme',
   config = function(opts)

@@ -1,4 +1,5 @@
 local opt = vim.opt
+
 --put numbers on the side
 opt.number = true
 opt.relativenumber = true
@@ -33,6 +34,7 @@ opt.wrap = false
 opt.guicursor = ""
 
 opt.swapfile = false
+
 -- make a backup before overwritting file
 opt.backup = true
 vim.opt_global.backupdir = os.getenv("HOME") .. "/.nvimTmp/backupdir"
@@ -48,14 +50,11 @@ opt.hlsearch = true
 --show search while typing it
 opt.incsearch = true
 
---24 bit color (required for a bunch of plugins)
-opt.termguicolors = true
-
 --brings the text up or when hitting 10 above or below the top or bottom
 opt.scrolloff = 10
 
 --enable cursor to go one more char in normal mode
-vim.cmd("set ve+=onemore")
+--vim.cmd("set ve+=onemore")
 
 --turn off the mouse
 --opt.mouse = ""

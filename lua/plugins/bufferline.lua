@@ -3,8 +3,6 @@ return {
 	dependencies = "nvim-tree/nvim-web-devicons",
 	opts = { version = "*", event = "UIEnter" },
 	config = function(opts)
-		vim.opt.termguicolors = true
-
 		local bufferline = require("bufferline")
 		bufferline.setup({
 
