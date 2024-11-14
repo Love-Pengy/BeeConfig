@@ -1,9 +1,23 @@
+
 return {
-  "love-pengy/lillilac.nvim",
+  "RedsXDD/neopywal.nvim",
+  priority = 1000, 
   config = function()
-    vim.cmd.colorscheme("lillilac")
+    require("neopywal").setup({
+      use_wallust = true, 
+      colorscheme_file = os.getenv("HOME") .. "/.config/nvim/lua/plugins/neopywalColors.vim"
+    })
+    vim.cmd.colorscheme("neopywal")
   end,
 }
+
+-- return {
+--   "love-pengy/lillilac.nvim",
+--   priority = 1000, 
+--   config = function()
+--     vim.cmd.colorscheme("lillilac")
+--   end,
+-- }
 
 --testing
 --[[
