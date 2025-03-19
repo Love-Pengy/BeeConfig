@@ -2,7 +2,7 @@ return {
   --discord rich presence
   "jiriks74/presence.nvim",
   opts = { event = "UIEnter" },
-  enabled = false,
+  enabled = true,
   config = function(opts)
     -- The setup config table shows all available config options with their default values:
     require("presence").setup({

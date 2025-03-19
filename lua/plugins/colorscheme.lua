@@ -4,8 +4,7 @@ return {
   priority = 1000, 
   config = function()
     require("neopywal").setup({
-      use_wallust = true, 
-      colorscheme_file = os.getenv("HOME") .. "/.config/nvim/lua/plugins/neopywalColors.vim"
+      transparent_background = true 
     })
     vim.cmd.colorscheme("neopywal")
   end,

@@ -7,13 +7,13 @@ return {
         opts = { color = "#63bda4" },
         config = true,
         lazy = false,
-        enabled = false,
+        enabled = true,
       },
       {
         "iamcco/markdown-preview.nvim",
         cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
         ft = { "markdown" },
-        enabled = false,
+        enabled = true,
         build = function()
           vim.fn["mkdp#util#install"]()
         end,
