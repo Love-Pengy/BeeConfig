@@ -7,11 +7,12 @@ return {
         opts = { color = "#63bda4" },
         config = true,
         lazy = false,
-        enabled = true,
+        enabled = false,
       },
       {
         "iamcco/markdown-preview.nvim",
-        cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+        cmd = { "MarkdownPreviewToggle", "MarkdownPreview", 
+          "MarkdownPreviewStop" },
         ft = { "markdown" },
         enabled = true,
         build = function()
