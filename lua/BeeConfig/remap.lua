@@ -48,10 +48,10 @@ vim.keymap.set("i", "<Down>", '<ESC>:echoe "Use j"<CR>')
 --]]
 
 --buffer (im finna use these as tabs) keybinds
-vim.keymap.set("n", "<leader>t", ":enew<CR>")
-vim.keymap.set("n", "<leader>d", ":bd<CR>")
-vim.keymap.set("n", "<leader><Tab>", ":bnext<CR>")
-vim.keymap.set("n", "<leader><S-Tab>", ":bprev<CR>")
+-- vim.keymap.set("n", "<leader>t", ":enew<CR>")
+vim.keymap.set("n", "<leader>d", "<cmd>bd<CR>")
+vim.keymap.set("n", "<leader><Tab>", "<cmd>bnext<CR>")
+vim.keymap.set("n", "<leader><S-Tab>", "<cmd>bprev<CR>")
 
 --inverse tab in insert mode
 vim.keymap.set("i", "<S-Tab>", "<C-d>")

@@ -69,4 +69,6 @@ opt.smartcase = true
 -- command line height (status line still stays)
 opt.cmdheight = 0;
 
+opt.colorcolumn = "80";
+
 
