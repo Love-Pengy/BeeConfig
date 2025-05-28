@@ -10,22 +10,21 @@ opt.updatetime = 500
 -- time to wait for a keybind to complete 
 opt.timeoutlen = 500
 
---enable colored line on cursor
+--enable colored line on cursor (needed for deadcolumn)
 opt.cursorline = true
+opt.colorcolumn = "80";
 
 --will try to be smart about when tabbing so will use multuple if needed
 opt.smarttab = true
 
 --automatically indent in functions and what not
 opt.autoindent = true
+opt.smartindent = true
 
 --set tabs to 2 spaces no matter what
 opt.tabstop = 2 --amount of spaces for normal tabs
 opt.shiftwidth = 2 -- spaces for when using << or >>
 opt.expandtab = true -- pressing tab key will insert spaces instead of tab character
-
---self explainatory
-opt.smartindent = true
 
 --dont wrap text
 opt.wrap = false
@@ -37,12 +36,12 @@ opt.swapfile = false
 
 -- make a backup before overwritting file
 opt.backup = true
-vim.opt_global.backupdir = os.getenv("HOME") .. "/.nvimTmp/backupdir"
+vim.opt_global.backupdir = os.getenv("HOME") .. "/tmp/.nvimTmp/backupdir"
 opt.backupcopy = "auto"
 
 -- hold undos into a file for persistance 
 opt.undofile = true
-opt.undodir = os.getenv("HOME") .. "/.nvimTmp/undodir"
+opt.undodir = os.getenv("HOME") .. "/nvimTmp/undodir"
 
 --highlight current search
 opt.hlsearch = true
@@ -53,12 +52,6 @@ opt.incsearch = true
 --brings the text up or when hitting 10 above or below the top or bottom
 opt.scrolloff = 10
 
---enable cursor to go one more char in normal mode
---vim.cmd("set ve+=onemore")
-
---turn off the mouse
---opt.mouse = ""
-
 --colorscheme fixing
 vim.cmd("set numberwidth=1")
 
@@ -66,9 +59,5 @@ vim.cmd("set numberwidth=1")
 opt.ignorecase = true
 opt.smartcase = true
 
--- command line height (status line still stays)
-opt.cmdheight = 0;
-
-opt.colorcolumn = "80";
-
+opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 

@@ -1,13 +1,13 @@
 --make leader space
 vim.g.mapleader = " "
 
---Make Ctrl+C equivalent to ESC so that the exit hint doesn't come up ove the status line
-vim.keymap.set({ "n", "v", "i" }, "<C-c>", "<Esc>")
-
 --open netrw
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 
---when using these binds you can move a chunk of text and it will automatically indent
+-- FIXME: this doesn't work for multiple lines in certain cases atm 
+
+--when using these binds you can move a chunk of text and it will automatically 
+--indent
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
@@ -35,27 +35,20 @@ vim.keymap.set("n", 'ci"', '"_ci"')
 vim.keymap.set("n", "d", '"_d')
 vim.keymap.set("v", "d", '"_d')
 
---force you to use nvim binds!
---[[
-vim.keymap.set("n", "<Left>", ':echoe "Use h"<CR>')
-vim.keymap.set("n", "<Right>", ':echoe "Use l"<CR>')
-vim.keymap.set("n", "<Up>", ':echoe "Use k"<CR>')
-vim.keymap.set("n", "<Down>", ':echoe "Use j"<CR>')
-vim.keymap.set("i", "<Left>", '<ESC>:echoe "Use h"<CR>')
-vim.keymap.set("i", "<Right>", '<ESC>:echoe "Use l"<CR>')
-vim.keymap.set("i", "<Up>", '<ESC>:echoe "Use k"<CR>')
-vim.keymap.set("i", "<Down>", '<ESC>:echoe "Use j"<CR>')
---]]
-
 --buffer (im finna use these as tabs) keybinds
--- vim.keymap.set("n", "<leader>t", ":enew<CR>")
+vim.keymap.set("n", "<leader>t", ":bnew<CR>")
 vim.keymap.set("n", "<leader>d", "<cmd>bd<CR>")
 vim.keymap.set("n", "<leader><Tab>", "<cmd>bnext<CR>")
 vim.keymap.set("n", "<leader><S-Tab>", "<cmd>bprev<CR>")
 
---inverse tab in insert mode
-vim.keymap.set("i", "<S-Tab>", "<C-d>")
 
---tabs in visual mode
--- vim.keymap.set("v", "<S-Tab>", "<<")
--- vim.keymap.set("v", "<Tab>", ">>")
+vim.keymap.set('n', 'gh', vim.lsp.buf.signature_help)
+vim.keymap.set('n', 'gd', vim.lsp.buf.definition)
+vim.keymap.set('n', 'gD', vim.lsp.buf.declaration)
+vim.keymap.set('n', 'gi', vim.lsp.buf.implementation)
+vim.keymap.set('n', 'go', vim.lsp.buf.type_definition)
+vim.keymap.set('n', 'gr', vim.lsp.buf.references)
+vim.keymap.set('n', 'gs', vim.lsp.buf.signature_help)
+vim.keymap.set('n', 'gr', vim.lsp.buf.rename)
+vim.keymap.set({ 'n', 'x' }, 'gf', vim.lsp.buf.format)
+vim.keymap.set('n', 'ga', vim.lsp.buf.code_action)
