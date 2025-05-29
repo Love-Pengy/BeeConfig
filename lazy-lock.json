@@ -6,7 +6,7 @@
   "fd": { "branch": "master", "commit": "dbea8a68a8b2cba8282d76e766c143948384d583" },
   "indent-blankline.nvim": { "branch": "master", "commit": "005b56001b2cb30bfa61b7986bc50657816ba4ba" },
   "lazy.nvim": { "branch": "main", "commit": "6c3bda4aca61a13a9c63f1c1d1b16b9d3be90d7a" },
-  "lillilac.nvim": { "branch": "main", "commit": "21a1ff694e4833c766184a96628dc4e9bd5e77fc" },
+  "lillilac.nvim": { "branch": "main", "commit": "e54c75ae3fbafb7671307cbbb2a21d2c06dbf265" },
   "lualine.nvim": { "branch": "master", "commit": "0c6cca9f2c63dadeb9225c45bc92bb95a151d4af" },
   "markview.nvim": { "branch": "main", "commit": "1edad11ca4a1fddf171c07a1a3d81e24cef08410" },
   "mason.nvim": { "branch": "main", "commit": "8024d64e1330b86044fed4c8494ef3dcd483a67c" },

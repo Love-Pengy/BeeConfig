@@ -12,7 +12,7 @@ vim.lsp.config('*', {
   root_markers = { '.git' },
 })
 
-vim.lsp.enable('cpplint')
 vim.lsp.enable('clangd')
+vim.lsp.enable('luals')
 
 require("BeeConfig")

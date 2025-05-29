@@ -36,12 +36,12 @@ opt.swapfile = false
 
 -- make a backup before overwritting file
 opt.backup = true
-vim.opt_global.backupdir = os.getenv("HOME") .. "/tmp/.nvimTmp/backupdir"
+vim.opt_global.backupdir = "/tmp/nvimTmp/backupdir"
 opt.backupcopy = "auto"
 
 -- hold undos into a file for persistance 
 opt.undofile = true
-opt.undodir = os.getenv("HOME") .. "/nvimTmp/undodir"
+opt.undodir = "/tmp/nvimTmp/undodir"
 
 --highlight current search
 opt.hlsearch = true
