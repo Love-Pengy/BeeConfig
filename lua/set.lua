@@ -59,5 +59,28 @@ vim.cmd("set numberwidth=1")
 opt.ignorecase = true
 opt.smartcase = true
 
+-- Show Whitespace
+vim.opt.list = true
 opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
+
+-- Sync Clipboards
+vim.o.clipboard = 'unnamedplus'
+
+-- Set Signs
+vim.diagnostic.config({
+  signs = {
+    text = {
+      [vim.diagnostic.severity.ERROR] = "✘", 
+      [vim.diagnostic.severity.WARN] = "▲", 
+      [vim.diagnostic.severity.HINT] = "⚑",
+      [vim.diagnostic.severity.INFO] = " ", 
+    },
+  },
+  virtual_text = {
+    prefix = "󰻀",
+  },
+  underline = false,
+  update_in_insert = true,
+  severity_sort = true,
+})
 

@@ -8,7 +8,7 @@ return {
     vim.keymap.set("n", "<leader>tp", function()
       require("todo-comments").jump_prev()
     end, { desc = "Previous Todo Comment" }),
-    vim.keymap.set("n", "<leader>tt", "<cmd>TodoTelescope<CR>", 
-      { desc = "Open Todo List In Telescope" }) 
+    vim.keymap.set("n", "<leader>tt", "<cmd>TodoTelescope<CR>",
+      { desc = "Open Todo List In Telescope" })
   },
 }
