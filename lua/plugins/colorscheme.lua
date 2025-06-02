@@ -1,6 +1,9 @@
 return {
-  "love-pengy/lillilac.nvim",
+  -- Baes2Tone_MallDark, Base2Tone_PorchDark
+  "atelierbram/Base2Tone-vim",
+  lazy = false,
+  priority = 1000,
   config = function()
-    vim.cmd.colorscheme("lillilac")
+    vim.cmd.colorscheme("Base2Tone_PorchDark")
   end,
 }
