@@ -5,5 +5,6 @@ return {
   priority = 1000,
   config = function()
     vim.cmd.colorscheme("Base2Tone_PorchDark")
+    vim.api.nvim_set_hl(0, "CursorLineNr", {fg = "#f2e3f7"})
   end,
 }

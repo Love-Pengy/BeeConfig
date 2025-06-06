@@ -26,12 +26,9 @@ return {
         -- create the highlight groups in the highlight setup hook, so they are reset
         -- every time the colorscheme changes
         hooks.register(hooks.type.HIGHLIGHT_SETUP, function()
-            vim.api.nvim_set_hl(0, "Color1", { fg = "#d26487" })
-            vim.api.nvim_set_hl(0, "Color2", { fg = "#35a8a5" })
-            vim.api.nvim_set_hl(0, "Color3", { fg = "#6981c5" })
-            vim.api.nvim_set_hl(0, "Color4", { fg = "#a15ea7" })
-            vim.api.nvim_set_hl(0, "Color5", { fg = "#288668" })
-            vim.api.nvim_set_hl(0, "Color6", { fg = "#ca754b" })
+            -- vim.api.nvim_set_hl(0, "Color1", { fg = "#674573" })
+            -- vim.api.nvim_set_hl(0, "Color3", { fg = "#6981c5" })
+            -- vim.api.nvim_set_hl(0, "Color4", { fg = "#a15ea7" })
             vim.api.nvim_set_hl(0, "Sunflower1", { fg = "#FBCA47" })
             vim.api.nvim_set_hl(0, "Sunflower2", { fg = "#FBEB62" })
             vim.api.nvim_set_hl(0, "Sunflower3", { fg = "#DE6D11" })
@@ -41,7 +38,7 @@ return {
 
         vim.g.rainbow_delimiters = { highlight = sunflowerDelims }
         require("ibl").setup({
-            indent = { highlight = highlight },
+            -- indent = { highlight = highlight },
             scope = { highlight = sunflowerDelims, show_start = false, show_end = false },
         })
 
