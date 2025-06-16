@@ -1,3 +1,4 @@
 .luarc.json
 lua/plugins/neopywalColors.vim
+lazy-lock.json
 
