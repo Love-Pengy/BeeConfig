@@ -3,6 +3,7 @@ return {
   dependencies = { 'nvim-tree/nvim-web-devicons' },
 
   config = function()
+    local kanagawa_paper = require("lualine.themes.kanagawa-paper-ink")
     require('lualine').setup({
       sections = {
         lualine_a = { 'mode' },
@@ -16,7 +17,7 @@ return {
         separator = nil,
         section_separators = '',
         component_separators = '',
-        -- theme = custom_auto,
+        theme = kanagawa_paper,
       },
     })
   end,
