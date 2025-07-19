@@ -12,7 +12,7 @@ opt.timeoutlen = 500
 
 --enable colored line on cursor (needed for deadcolumn)
 opt.cursorline = true
-opt.colorcolumn = "80";
+opt.colorcolumn = "100";
 
 --will try to be smart about when tabbing so will use multuple if needed
 opt.smarttab = true
