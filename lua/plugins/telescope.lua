@@ -3,7 +3,7 @@ return {
     dependencies = { "nvim-lua/plenary.nvim", "sharkdp/fd" },
     config = function()
         local builtin = require("telescope.builtin")
-        vim.keymap.set("n", "<leader>pf", "<cmd>Telescope find_files no_ignore=true<CR>", {})
-        vim.keymap.set("n", "<leader>ps", builtin.live_grep, {})
+        vim.keymap.set("n", "<leader>pf", "<cmd>Telescope find_files<CR>", {})
+        vim.keymap.set("n", "<leader>ps", "<cmd>Telescope live_grep<CR>", {})
     end,
 }
