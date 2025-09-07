@@ -45,6 +45,7 @@ vim.api.nvim_create_autocmd("BufNewFile", {
             -- fnamemodify with `:t` gets the tail of the file path: the actual filename
             -- See :help fnamemodify
             local fname = vim.fn.fnamemodify(args.file, ":t")
+            local fname_noext = vim.fn.fnamemodify(args.file, ":r")
             if fname:match "main.c" then
                 vim.cmd("0r " .. vim.fn.stdpath("config") .. (fptrc and "/templates/work_main.c" or "/templates/main.c"))
             elseif fname:match "%.c$" then
@@ -52,5 +53,15 @@ vim.api.nvim_create_autocmd("BufNewFile", {
             elseif fname:match "%.h$" then
                 vim.cmd("0r " .. vim.fn.stdpath("config") .. (fptrh and "/templates/work.h" or "/templates/gen.h"))
             end
+
+            -- We making devs cry with this one 💯
+            vim.cmd(":%s/${1:filename}/" .. fname)
+            vim.cmd(":%s/${2:date}/" .. os.date("%b %d, %Y"))
+            vim.cmd(":%s/${3:year}/" .. os.date("%Y"))
+            vim.cmd(":%s/${4:filename_cap}/" .. string.upper(fname_noext))
         end
 })
+
+vim.api.nvim_create_user_command("ExpandSnippet", function()
+  vim.snippet.expand("print('${1:Hello}, ${2:world}!')")
+end, {})
