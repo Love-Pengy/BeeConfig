@@ -55,10 +55,10 @@ vim.api.nvim_create_autocmd("BufNewFile", {
             end
 
             -- We making devs cry with this one 💯
-            vim.cmd(":%s/${1:filename}/" .. fname)
-            vim.cmd(":%s/${2:date}/" .. os.date("%b %d, %Y"))
-            vim.cmd(":%s/${3:year}/" .. os.date("%Y"))
-            vim.cmd(":%s/${4:filename_cap}/" .. string.upper(fname_noext))
+            vim.cmd("silent! %s/${1:filename}/" .. fname)
+            vim.cmd("silent! %s/${2:date}/" .. os.date("%b %d, %Y"))
+            vim.cmd("silent! %s/${3:year}/" .. os.date("%Y"))
+            vim.cmd("silent! %s/${4:filename_cap}/" .. string.upper(fname_noext))
         end
 })
 
