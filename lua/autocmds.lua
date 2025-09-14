@@ -61,7 +61,3 @@ vim.api.nvim_create_autocmd("BufNewFile", {
             vim.cmd("silent! %s/${4:filename_cap}/" .. string.upper(fname_noext))
         end
 })
-
-vim.api.nvim_create_user_command("ExpandSnippet", function()
-  vim.snippet.expand("print('${1:Hello}, ${2:world}!')")
-end, {})
