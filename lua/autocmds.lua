@@ -55,6 +55,8 @@ vim.api.nvim_create_autocmd("BufNewFile", {
                 vim.cmd("0r " .. vim.fn.stdpath("config") .. (fptrh and "/templates/work.h" or "/templates/gen.h"))
             elseif fname:match "%.sh$" then
                 vim.cmd("0r " .. vim.fn.stdpath("config") .. (fptrh and "/templates/work.sh" or "/templates/gen.sh"))
+            elseif fname:match "%.yaml$" then
+                vim.cmd("0r " .. vim.fn.stdpath("config") .. (fptrh and "/templates/work.yaml" or "/templates/gen.yaml"))
             end
 
             -- We making devs cry with this one 💯
