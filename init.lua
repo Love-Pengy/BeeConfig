@@ -16,12 +16,13 @@ vim.lsp.enable('clangd')
 vim.lsp.enable('luals')
 vim.lsp.enable('pylsp')
 vim.lsp.enable('harper_ls')
+vim.lsp.enable('gh_actions_ls')
 
 require("remap")
 require("set")
 require("autocmds")
 
---package manager
+-- package manager
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 
 if not vim.loop.fs_stat(lazypath) then

@@ -49,7 +49,7 @@ vim.api.nvim_create_autocmd("BufNewFile", {
             if fname:match "main.c" then
                 vim.cmd("0r " .. vim.fn.stdpath("config") .. (fptrc and "/templates/work_main.c" or "/templates/main.c"))
             elseif fname:match "%.c$" then
-                vim.cmd("0r " .. vim.fn.stdpath("config") .. (fptrc and "/templates/work.c" or "/templates/gen.c"))
+                vim.cmd("0r " .. vim.fn.stdpath("config") .. (fptrc and "/templates/work_gen.c" or "/templates/gen.c"))
             elseif fname:match "%.h$" then
                 vim.cmd("0r " .. vim.fn.stdpath("config") .. (fptrh and "/templates/work.h" or "/templates/gen.h"))
             end
