@@ -46,12 +46,15 @@ vim.api.nvim_create_autocmd("BufNewFile", {
             -- See :help fnamemodify
             local fname = vim.fn.fnamemodify(args.file, ":t")
             local fname_noext = vim.fn.fnamemodify(args.file, ":r")
+            -- FIXME: fix this mess ~ BEF
             if fname:match "main.c" then
                 vim.cmd("0r " .. vim.fn.stdpath("config") .. (fptrc and "/templates/work_main.c" or "/templates/main.c"))
             elseif fname:match "%.c$" then
                 vim.cmd("0r " .. vim.fn.stdpath("config") .. (fptrc and "/templates/work_gen.c" or "/templates/gen.c"))
             elseif fname:match "%.h$" then
                 vim.cmd("0r " .. vim.fn.stdpath("config") .. (fptrh and "/templates/work.h" or "/templates/gen.h"))
+            elseif fname:match "%.sh$" then
+                vim.cmd("0r " .. vim.fn.stdpath("config") .. (fptrh and "/templates/work.sh" or "/templates/gen.sh"))
             end
 
             -- We making devs cry with this one 💯
