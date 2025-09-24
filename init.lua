@@ -17,6 +17,7 @@ vim.lsp.enable('luals')
 vim.lsp.enable('pylsp')
 vim.lsp.enable('harper_ls')
 vim.lsp.enable('gh_actions_ls')
+vim.lsp.enable('bashls')
 
 require("remap")
 require("set")
