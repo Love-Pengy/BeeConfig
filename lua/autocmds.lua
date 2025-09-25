@@ -34,8 +34,9 @@ vim.api.nvim_create_autocmd('LspAttach', {
 })
 
 
+-- FIXME: This should depend on each specific file's work and gen alternatives
 local fptrc = io.open(vim.fn.stdpath("config") .. "/templates/work_main.c")
-local fptrh = io.open(vim.fn.stdpath("config") .. "/templates/work.h")
+local fptrh = io.open(vim.fn.stdpath("config") .. "/templates/work_gen.h")
 
 -- Templates
 vim.api.nvim_create_autocmd("BufNewFile", {
