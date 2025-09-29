@@ -1,23 +1,19 @@
 local opt = vim.opt
 
---put numbers on the side
 opt.number = true
 opt.relativenumber = true
 
 --make the time to accept a command to 500 ms instead of 1000 for mappings
-opt.updatetime = 500
+-- opt.updatetime = 500
 
 -- time to wait for a keybind to complete 
-opt.timeoutlen = 500
+-- opt.timeoutlen = 500
 
 --enable colored line on cursor (needed for deadcolumn)
 opt.cursorline = true
 opt.colorcolumn = "100";
 
---will try to be smart about when tabbing so will use multuple if needed
 opt.smarttab = true
-
---automatically indent in functions and what not
 opt.autoindent = true
 opt.smartindent = true
 
@@ -45,8 +41,6 @@ opt.undodir = "/tmp/nvimTmp/undodir"
 
 --highlight current search
 opt.hlsearch = true
-
---show search while typing it
 opt.incsearch = true
 
 --brings the text up or when hitting 10 above or below the top or bottom
@@ -70,10 +64,10 @@ vim.o.clipboard = 'unnamedplus'
 vim.diagnostic.config({
   signs = {
     text = {
-      [vim.diagnostic.severity.ERROR] = "✘", 
-      [vim.diagnostic.severity.WARN] = "▲", 
+      [vim.diagnostic.severity.ERROR] = "✘",
+      [vim.diagnostic.severity.WARN] = "▲",
       [vim.diagnostic.severity.HINT] = "⚑",
-      [vim.diagnostic.severity.INFO] = " ", 
+      [vim.diagnostic.severity.INFO] = " ",
     },
   },
   virtual_text = {
