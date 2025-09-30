@@ -36,7 +36,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
 -- FIXME: This should depend on each specific file's work and gen alternatives
 local fptrc = io.open(vim.fn.stdpath("config") .. "/templates/work_main.c")
-local fptrh = io.open(vim.fn.stdpath("config") .. "/templates/work_gen.h")
+local fptrh = io.open(vim.fn.stdpath("config") .. "/templates/work.h")
 
 -- Templates
 vim.api.nvim_create_autocmd("BufNewFile", {
@@ -46,7 +46,7 @@ vim.api.nvim_create_autocmd("BufNewFile", {
             -- fnamemodify with `:t` gets the tail of the file path: the actual filename
             -- See :help fnamemodify
             local fname = vim.fn.fnamemodify(args.file, ":t")
-            local fname_noext = vim.fn.fnamemodify(args.file, ":r")
+            local fname_noext = vim.fn.expand("%:t:r")
             -- FIXME: fix this mess ~ BEF
             if fname:match "main.c" then
                 vim.cmd("0r " .. vim.fn.stdpath("config") .. (fptrc and "/templates/work_main.c" or "/templates/main.c"))
