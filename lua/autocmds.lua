@@ -34,7 +34,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
 })
 
 
--- FIXME: This should depend on each specific file's work and gen alternatives
+-- FIXME: This should depend on each specific file's work and gen alternatives just in case ~ BEF
 local fptrc = io.open(vim.fn.stdpath("config") .. "/templates/work_main.c")
 local fptrh = io.open(vim.fn.stdpath("config") .. "/templates/work.h")
 
@@ -47,6 +47,7 @@ vim.api.nvim_create_autocmd("BufNewFile", {
             -- See :help fnamemodify
             local fname = vim.fn.fnamemodify(args.file, ":t")
             local fname_noext = vim.fn.expand("%:t:r")
+
             -- FIXME: fix this mess ~ BEF
             if fname:match "main.c" then
                 vim.cmd("0r " .. vim.fn.stdpath("config") .. (fptrc and "/templates/work_main.c" or "/templates/main.c"))
@@ -60,8 +61,11 @@ vim.api.nvim_create_autocmd("BufNewFile", {
                 vim.cmd("0r " .. vim.fn.stdpath("config") .. (fptrh and "/templates/work.yaml" or "/templates/gen.yaml"))
             elseif fname:match "%.py$" then
                 vim.cmd("0r " .. vim.fn.stdpath("config") .. (fptrh and "/templates/work.py" or "/templates/gen.py"))
+            elseif fname:match "%.md$" then
+                vim.cmd("0r " .. vim.fn.stdpath("config") .. "/templates/gen.md")
             end
 
+            -- FIXME: no fr fix this mess ~ BEF
             -- We making devs cry with this one 💯
             vim.cmd("silent! %s/${1:filename}/" .. fname)
             vim.cmd("silent! %s/${2:date}/" .. os.date("%b %d, %Y"))
