@@ -63,6 +63,8 @@ vim.api.nvim_create_autocmd("BufNewFile", {
                 vim.cmd("0r " .. vim.fn.stdpath("config") .. (fptrh and "/templates/work.py" or "/templates/gen.py"))
             elseif fname:match "%.md$" then
                 vim.cmd("0r " .. vim.fn.stdpath("config") .. "/templates/gen.md")
+            elseif fname:match "%.lua$" then
+                vim.cmd("0r " .. vim.fn.stdpath("config") .. (fptrh and "/templates/work.lua" or "/templates/gen.lua"))
             end
 
             -- FIXME: no fr fix this mess ~ BEF
