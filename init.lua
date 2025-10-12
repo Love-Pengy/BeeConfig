@@ -12,13 +12,7 @@ vim.lsp.config('*', {
     root_markers = { '.git' },
 })
 
-vim.lsp.enable('clangd')
-vim.lsp.enable('luals')
-vim.lsp.enable('pylsp')
-vim.lsp.enable('harper_ls')
-vim.lsp.enable('gh_actions_ls')
-vim.lsp.enable('bashls')
-
+require("lsp-configuration")
 require("remap")
 require("set")
 require("autocmds")
