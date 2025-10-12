@@ -1,5 +1,5 @@
 vim.api.nvim_create_autocmd("LspAttach", {
-    group = vim.api.nvim_create_augroup("LspMappings", {clear = true}),
+    group = vim.api.nvim_create_augroup("LspMappings", { clear = true }),
     callback = function(args)
         local opts = { buffer = args.buf }
 
@@ -16,9 +16,9 @@ vim.api.nvim_create_autocmd("LspAttach", {
     end,
 })
 
-vim.cmd[[set completeopt+=menuone,noselect,popup]]
+vim.cmd [[set completeopt+=menuone,noselect,popup]]
 vim.api.nvim_create_autocmd('LspAttach', {
-    group = vim.api.nvim_create_augroup("LspFunctions", {clear = true}),
+    group = vim.api.nvim_create_augroup("LspFunctions", { clear = true }),
     callback = function(args)
         local client = vim.lsp.get_client_by_id(args.data.client_id)
 
@@ -27,51 +27,49 @@ vim.api.nvim_create_autocmd('LspAttach', {
         -- end
 
         if client:supports_method('textDocument/completion') then
-            vim.lsp.completion.enable(true, client.id, args.buf, {autotrigger = true})
+            vim.lsp.completion.enable(true, client.id, args.buf, { autotrigger = true })
         end
-
     end,
 })
 
-
--- FIXME: This should depend on each specific file's work and gen alternatives just in case ~ BEF
-local fptrc = io.open(vim.fn.stdpath("config") .. "/templates/work_main.c")
-local fptrh = io.open(vim.fn.stdpath("config") .. "/templates/work.h")
 
 -- Templates
 vim.api.nvim_create_autocmd("BufNewFile", {
     group = vim.api.nvim_create_augroup("templates", { clear = true }),
     desc = "Load template file",
-        callback = function(args)
-            -- fnamemodify with `:t` gets the tail of the file path: the actual filename
-            -- See :help fnamemodify
-            local fname = vim.fn.fnamemodify(args.file, ":t")
-            local fname_noext = vim.fn.expand("%:t:r")
+    callback = function(args)
+        local fname = vim.fn.fnamemodify(args.file, ":t")
 
-            -- FIXME: fix this mess ~ BEF
-            if fname:match "main.c" then
-                vim.cmd("0r " .. vim.fn.stdpath("config") .. (fptrc and "/templates/work_main.c" or "/templates/main.c"))
-            elseif fname:match "%.c$" then
-                vim.cmd("0r " .. vim.fn.stdpath("config") .. (fptrc and "/templates/work_gen.c" or "/templates/gen.c"))
-            elseif fname:match "%.h$" then
-                vim.cmd("0r " .. vim.fn.stdpath("config") .. (fptrh and "/templates/work.h" or "/templates/gen.h"))
-            elseif fname:match "%.sh$" then
-                vim.cmd("0r " .. vim.fn.stdpath("config") .. (fptrh and "/templates/work.sh" or "/templates/gen.sh"))
-            elseif fname:match "%.yaml$" then
-                vim.cmd("0r " .. vim.fn.stdpath("config") .. (fptrh and "/templates/work.yaml" or "/templates/gen.yaml"))
-            elseif fname:match "%.py$" then
-                vim.cmd("0r " .. vim.fn.stdpath("config") .. (fptrh and "/templates/work.py" or "/templates/gen.py"))
-            elseif fname:match "%.md$" then
-                vim.cmd("0r " .. vim.fn.stdpath("config") .. "/templates/gen.md")
-            elseif fname:match "%.lua$" then
-                vim.cmd("0r " .. vim.fn.stdpath("config") .. (fptrh and "/templates/work.lua" or "/templates/gen.lua"))
-            end
+        local replacements = {
+            ["${1:filename}"] = fname,
+            ["${2:date}"] = os.date("%b %d, %Y"),
+            ["${3:year}"] = os.date("%Y"),
+            ["${4:filename_cap}"] = string.upper(vim.fn.fnamemodify(args.file, "%:t:r"))
+        }
 
-            -- FIXME: no fr fix this mess ~ BEF
-            -- We making devs cry with this one 💯
-            vim.cmd("silent! %s/${1:filename}/" .. fname)
-            vim.cmd("silent! %s/${2:date}/" .. os.date("%b %d, %Y"))
-            vim.cmd("silent! %s/${3:year}/" .. os.date("%Y"))
-            vim.cmd("silent! %s/${4:filename_cap}/" .. string.upper(fname_noext))
+        local gen_fname = "gen"
+        local work_fname = "work"
+        local fname_ext = vim.fn.fnamemodify(args.file, ":e")
+
+        if fname:match "main.c" then
+            work_fname = work_fname .. "_main"
+            gen_fname = gen_fname .. "_main"
         end
+
+        if (vim.fn.filereadable(vim.fn.stdpath("config") .. "/templates/" .. work_fname
+                .. '.' .. fname_ext) == 1) then
+            vim.cmd("0r " .. vim.fn.stdpath("config") .. "/templates/" .. work_fname
+                .. '.' .. fname_ext)
+        elseif (vim.fn.filereadable(vim.fn.stdpath("config") .. "/templates/" .. gen_fname
+                .. '.' .. fname_ext) == 1) then
+            vim.cmd("0r " .. vim.fn.stdpath("config") .. "/templates/"
+                .. gen_fname .. '.' .. fname_ext)
+        else
+            return
+        end
+
+        for key, value in pairs(replacements) do
+            vim.cmd("silent! %s/" .. key .. '/' .. value)
+        end
+    end
 })
