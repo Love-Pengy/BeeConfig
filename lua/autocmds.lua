@@ -53,7 +53,6 @@ vim.api.nvim_create_autocmd("BufNewFile", {
 
         if fname:match "main.c" then
             work_fname = work_fname .. "_main"
-            gen_fname = gen_fname .. "_main"
         end
 
         if (vim.fn.filereadable(vim.fn.stdpath("config") .. "/templates/" .. work_fname
