@@ -71,5 +71,7 @@ vim.api.nvim_create_autocmd("BufNewFile", {
         for key, value in pairs(replacements) do
             vim.cmd("silent! %s/" .. key .. '/' .. value)
         end
+
+        vim.cmd("normal! G")
     end
 })
