@@ -1,16 +1,16 @@
 #!/bin/bash
 
 ###
-#  @file    ${1:filename}
-#  @author  Brandon Elias Frazier
-#  @date    ${2:date}
+#  @file      ${1:filename}
+#  @author    Brandon Elias Frazier
+#  @date      ${2:date}
 #
 #
-#  @brief   
+#  @brief     
 #
 #
-#  @arguments
-#       $1 - 
+#  @arguments 
+#       $1 -  
 #
 #
 #  @copyright (c) ${3:year} Brandon Elias Frazier
