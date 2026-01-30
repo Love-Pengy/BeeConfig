@@ -5,7 +5,7 @@ return {
     dependencies = { "OXY2DEV/markview.nvim" },
     lazy = false,
     config = function(opts)
-        require("nvim-treesitter.configs").setup({
+        require("nvim-treesitter").setup({
 
             -- Install parsers synchronously (only applied to `ensure_installed`)
             sync_install = false,
