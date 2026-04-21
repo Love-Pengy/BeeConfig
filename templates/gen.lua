@@ -1,10 +1,10 @@
 --[[
- -  @file    ${1:filename}
- -  @author  Brandon Elias Frazier
- -  @date    ${2:date}
+ -  @file      ${1:filename}
+ -  @author    Brandon Elias Frazier
+ -  @date      ${2:date}
  -
  -
- -  @brief   
+ -  @brief     
  -
  -
  -  @copyright (c) ${3:year} Brandon Elias Frazier
@@ -32,4 +32,5 @@
  ---------------------------------------------------------------------------------
  -
  --]]
+
 
