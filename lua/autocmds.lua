@@ -44,7 +44,7 @@ vim.api.nvim_create_autocmd("BufNewFile", {
             ["${1:filename}"] = fname,
             ["${2:date}"] = os.date("%b %d, %Y"),
             ["${3:year}"] = os.date("%Y"),
-            ["${4:filename_cap}"] = string.upper(vim.fn.fnamemodify(args.file, "%:t:r"))
+            ["${4:filename_cap}"] = string.upper(vim.fn.fnamemodify(args.file, ":t:r"))
         }
 
         local gen_fname = "gen"
