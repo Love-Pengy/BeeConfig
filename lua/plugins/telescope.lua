@@ -5,5 +5,6 @@ return {
         vim.keymap.set("n", "<leader>pf", "<cmd>Telescope find_files<CR>", {})
         vim.keymap.set("n", "<leader>ps", "<cmd>Telescope live_grep<CR>", {})
         vim.keymap.set("n", "<leader>pg", "<cmd>Telescope git_files<CR>", {})
+        vim.keymap.set("n", "<leader>pd", "<cmd>Telescope diagnostics<CR>", {})
     end,
 }
